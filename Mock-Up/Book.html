@@ -33,9 +33,8 @@
       body {
         background: url('Img/MoffatBayImage.jpg') no-repeat center center fixed;
         background-size: cover;
-        color: black;
-        overflow-x: hidden;
         position: relative;
+        color: white;
       }
 
       /* Add a dark overlay for readability */
@@ -58,17 +57,17 @@
 
       .registrationContainer {
         max-width: 500px;
-        margin: 100px auto 50px auto; /* Increased margin-top to push down from navbar */
+        margin: 50px auto;
         padding: 30px;
-        border: 1px solid #ced4da;
+        background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent background for the form */
         border-radius: 10px;
         box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
-        background-color: white; /* White background for the form */
-        color: black; /* Black text color for the form */
+        color: #333;
       }
 
       .registrationContainer h2 {
         margin-bottom: 20px;
+        color: #333;
       }
 
       .registrationContainer .form-group {
@@ -90,7 +89,7 @@
       }
     </style>
   </head>
-  <body>
+  <body class="container-fluid p-0" style="overflow-x: hidden">
     <header>
       <nav
         class="navbar navbar-expand-lg fixed-top mt-4 p-0"
@@ -140,32 +139,27 @@
 
     <main class="container mt-5 pt-5">
       <div class="registrationContainer">
-        <h2>Register</h2>
-        <form id="registrationForm">
+        <h2>Book your reservation</h2>
+        <form id="bookingForm">
           <div class="form-group">
-            <label for="firstName">First Name</label>
-            <input type="text" id="firstName" class="form-control" required />
+            <label for="reservationDate">Reservation Date</label>
+            <input type="date" id="reservationDate" class="form-control" required />
           </div>
           <div class="form-group">
-            <label for="lastName">Last Name</label>
-            <input type="text" id="lastName" class="form-control" required />
+            <label for="placeholder1">Placeholder</label>
+            <input type="text" id="placeholder1" class="form-control" required />
           </div>
           <div class="form-group">
-            <label for="phone">Phone</label>
-            <input type="tel" id="phone" class="form-control" required />
+            <label for="placeholder2">Placeholder</label>
+            <input type="text" id="placeholder2" class="form-control" required />
           </div>
           <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" class="form-control" required />
+            <label for="placeholder3">Placeholder</label>
+            <input type="text" id="placeholder3" class="form-control" required />
           </div>
           <div class="form-group">
-            <label for="password">Password</label>
-            <input
-              type="password"
-              id="password"
-              class="form-control"
-              required
-            />
+            <label for="placeholder4">Placeholder</label>
+            <input type="text" id="placeholder4" class="form-control" required />
           </div>
           <button type="submit" class="btn btn-success">Register</button>
           <div id="message"></div>
@@ -177,41 +171,7 @@
     <script src="PsudoDB.js"></script>
 
     <script>
-      document
-        .getElementById("registrationForm")
-        .addEventListener("submit", function (event) {
-          event.preventDefault();
-
-          const firstName = document.getElementById("firstName").value;
-          const lastName = document.getElementById("lastName").value;
-          const name = `${firstName} ${lastName}`;
-          const phone = document.getElementById("phone").value;
-          const email = document.getElementById("email").value;
-          const password = document.getElementById("password").value;
-
-          if (emailTaken(email)) {
-            document.getElementById("message").innerHTML =
-              '<p class="error">Email is already taken.</p>';
-          } else {
-            const newUser = createUser(
-              firstName,
-              lastName,
-              phone,
-              email,
-              password
-            );
-            registerUser(newUser);
-            document.getElementById("message").innerHTML =
-              '<p class="success">Registration successful! Welcome, ' +
-              name +
-              ".</p>";
-            document.getElementById("registrationForm").reset();
-            // wait 2 seconds and redirect to index.html
-            setTimeout(() => {
-              window.location.href = "index.html";
-            }, 2000);
-          }
-        });
+      // Your JavaScript logic here
     </script>
   </body>
 </html>

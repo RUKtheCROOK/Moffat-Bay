@@ -26,6 +26,56 @@
 
     <!-- JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <!-- Custom CSS -->
+    <style>
+      /* Set background image with opacity */
+      body {
+        background: url('Img/MoffatBayImage.jpg') no-repeat center center fixed;
+        background-size: cover;
+        position: relative;
+        color: white;
+      }
+
+      /* Add a dark overlay for readability */
+      body::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5); /* Adjust opacity as needed */
+        z-index: 1;
+      }
+
+      /* Ensure the content is above the overlay */
+      .container, .row {
+        position: relative;
+        z-index: 2;
+      }
+
+      /* Ensure the navbar is above the background */
+      header nav {
+        z-index: 3;
+        position: relative;
+      }
+
+      /* White container styling */
+      .content-container {
+        background-color: rgba(255, 255, 255, 0.9); /* White with slight transparency */
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        color: #333;
+        margin-top: 80px; /* Adds space between the navbar and the content container */
+      }
+
+      /* Style for main content */
+      main h1, main p {
+        color: #333;
+      }
+    </style>
   </head>
   <body class="container-fluid p-0" style="overflow-x: hidden">
     <header>
@@ -78,37 +128,39 @@
     <main class="container mt-5 pt-5">
       <div class="row justify-content-center">
         <div class="col-md-10">
-          <h1 class="text-center mt-4">About Moffat Bay Lodge</h1>
-          <p class="lead mt-4">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde dicta
-            tenetur aperiam repellendus cum quas.
-          </p>
-          <p class="mt-3">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Est
-            molestiae fugiat consectetur corporis dignissimos sunt nostrum
-            magnam odio recusandae voluptatem, expedita pariatur aperiam
-            molestias perspiciatis quod reiciendis praesentium facere mollitia,
-            natus ullam sit? Officiis eveniet, ipsum cum commodi, dolore dolores
-            adipisci ex hic magnam a rem numquam asperiores ut rerum doloremque
-            earum neque cumque natus. In eligendi assumenda officiis dolorum
-            facilis obcaecati similique facere? Dicta repudiandae nihil nesciunt
-            voluptatem sequi!
-          </p>
-          <p class="mt-3">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis
-            maiores assumenda animi minima odio maxime sint quam eius cupiditate
-            itaque.
-          </p>
-          <p class="mt-3">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita
-            fugiat ratione quae optio animi! Asperiores corporis eaque autem
-            optio nobis iste distinctio laboriosam rerum, voluptatum, sed cum,
-            sapiente cupiditate vel!
-          </p>
-          <p class="mt-3">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nobis
-            aspernatur necessitatibus id molestias obcaecati quibusdam!
-          </p>
+          <div class="content-container">
+            <h1 class="text-center mt-4">About Moffat Bay Lodge</h1>
+            <p class="lead mt-4">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde dicta
+              tenetur aperiam repellendus cum quas.
+            </p>
+            <p class="mt-3">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Est
+              molestiae fugiat consectetur corporis dignissimos sunt nostrum
+              magnam odio recusandae voluptatem, expedita pariatur aperiam
+              molestias perspiciatis quod reiciendis praesentium facere mollitia,
+              natus ullam sit? Officiis eveniet, ipsum cum commodi, dolore dolores
+              adipisci ex hic magnam a rem numquam asperiores ut rerum doloremque
+              earum neque cumque natus. In eligendi assumenda officiis dolorum
+              facilis obcaecati similique facere? Dicta repudiandae nihil nesciunt
+              voluptatem sequi!
+            </p>
+            <p class="mt-3">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis
+              maiores assumenda animi minima odio maxime sint quam eius cupiditate
+              itaque.
+            </p>
+            <p class="mt-3">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita
+              fugiat ratione quae optio animi! Asperiores corporis eaque autem
+              optio nobis iste distinctio laboriosam rerum, voluptatum, sed cum,
+              sapiente cupiditate vel!
+            </p>
+            <p class="mt-3">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nobis
+              aspernatur necessitatibus id molestias obcaecati quibusdam!
+            </p>
+          </div>
         </div>
       </div>
     </main>
