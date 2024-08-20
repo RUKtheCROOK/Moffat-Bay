@@ -1,5 +1,5 @@
-// this is a psudo database that will be used for testing purposes to store data on users who register and login to the page
-
+// This ia a psudo database
+// this will be used for testing purposes to store data on users who register and login to the page
 const users = [
   {
     id: 1,
@@ -60,3 +60,7 @@ function createUser(firstName, lastName, phone, email, password) {
     password: encryptPassword(password),
   };
 }
+
+
+// This will be used for user reservations booking rooms
+
