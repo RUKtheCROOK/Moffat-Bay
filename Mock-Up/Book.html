@@ -33,8 +33,9 @@
       body {
         background: url('Img/MoffatBayImage.jpg') no-repeat center center fixed;
         background-size: cover;
+        color: black;
+        overflow-x: hidden;
         position: relative;
-        color: white;
       }
 
       /* Add a dark overlay for readability */
@@ -55,26 +56,26 @@
         z-index: 2;
       }
 
-      .registrationContainer {
+      .bookingContainer {
         max-width: 500px;
-        margin: 50px auto;
+        margin: 100px auto 50px auto; /* Increased margin-top to push down from navbar */
         padding: 30px;
-        background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent background for the form */
+        border: 1px solid #ced4da;
         border-radius: 10px;
         box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
-        color: #333;
+        background-color: white; /* White background for the form */
+        color: black; /* Black text color for the form */
       }
 
-      .registrationContainer h2 {
+      .bookingContainer h2 {
         margin-bottom: 20px;
-        color: #333;
       }
 
-      .registrationContainer .form-group {
+      .bookingContainer .form-group {
         margin-bottom: 15px;
       }
 
-      .registrationContainer button {
+      .bookingContainer button {
         width: 100%;
       }
 
@@ -138,7 +139,7 @@
     </header>
 
     <main class="container mt-5 pt-5">
-      <div class="registrationContainer">
+      <div class="bookingContainer">
         <h2>Book your reservation</h2>
         <form id="bookingForm">
           <div class="form-group">
