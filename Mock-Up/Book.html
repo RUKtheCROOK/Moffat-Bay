@@ -88,6 +88,14 @@
         color: green;
         margin-top: 10px;
       }
+      .tacbox {
+        display:block;
+        padding: 1em;
+        margin: 2em;
+        border: 3px solid #ddd;
+        background-color: #eee;
+        max-width: 800px;
+        }
     </style>
   </head>
   <body class="container-fluid p-0" style="overflow-x: hidden">
@@ -143,12 +151,12 @@
         <h2>Book your reservation</h2>
         <form id="bookingForm">
           <div class="form-group">
-            <label for="reservationDate">Reservation Date</label>
-            <input type="date" id="reservationDate" class="form-control" required />
+            <label for="bookStartDate">Reservation Start Date</label>
+            <input type="date" id="bookStartDate" class="form-control" required />
           </div>
           <div class="form-group">
-            <label for="placeholder1">Placeholder</label>
-            <input type="text" id="placeholder1" class="form-control" required />
+            <label for="bookEndDate">Reservation End Date</label>
+            <input type="date" id="bookEndDate" class="form-control" required />
           </div>
           <div class="form-group">
             <label for="placeholder2">Placeholder</label>
@@ -162,7 +170,11 @@
             <label for="placeholder4">Placeholder</label>
             <input type="text" id="placeholder4" class="form-control" required />
           </div>
-          <button type="submit" class="btn btn-success">Register</button>
+          <div class="tacbox">
+            <input id="checkbox" type="checkbox" required />
+            <label for="checkbox"> I agree to the <a href="#">Terms and Conditions</a>.</label>
+          </div>
+          <button type="submit" class="btn btn-success">Book Now!</button>
           <div id="message"></div>
         </form>
       </div>
