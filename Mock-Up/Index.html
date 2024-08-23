@@ -27,31 +27,40 @@
     <!--JQuery-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
+    <!--Google fonts-->
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
     <style>
-      /* Full-screen background image */
-      .full-screen-bg {
-        background-image: url('Img/MoffatBayImage.jpg');
+      body {
+        background: url('Img/MoffatBayImage.jpg') no-repeat center center fixed;
         background-size: cover;
-        background-position: center;
-        height: 100vh;
-        width: 100%;
+        color: black;
+        overflow-x: hidden;
         position: relative;
+      }
+
+      /* White container styling */
+      .content-container {
+        background-color: white; /* White container */
+        padding: 30px;
+        border-radius: 40px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        color: #333;
+        margin-top: 80px; /* Adds space between the navbar and the content container */
       }
     </style>
   </head>
   <body class="container-fluid p-0" style="overflow-x: hidden">
     <header>
       <nav
-        class="navbar navbar-expand-lg fixed-top mt-4 p-0"
-        style="background-color: rgba(0, 0, 0, 0.75)"
+        class="navbar navbar-expand-lg fixed-top p-0"
+        style="background-color: rgba(0, 0, 0, 0.85)"
         data-bs-theme="dark"
       >
-        <div class="container">
-          <a class="navbar-brand" href="#"
-            ><i class="bi bi-tsunami"></i> Moffat Bay Lodge</a
-          >
+        <div class="container ps-0">
+          <a class="navbar-brand ms-2" href="#"><i class="bi bi-tsunami"></i> Moffat Bay Lodge</a>
           <button
-            class="navbar-toggler"
+            class="navbar-toggler m-1"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarText"
@@ -76,7 +85,7 @@
                 <a class="nav-link" href="Contact.html">Contact Us</a>
               </li>
               <li class="nav-item p-3">
-                <a class="nav-link" href="Register.html">Register/ Login</a>
+                <a class="nav-link" href="Login.html">Login</a>
               </li>
               <li class="nav-item p-3 bg-success">
                 <a class="nav-link" href="Book.html">Book now</a>
@@ -87,13 +96,125 @@
       </nav>
     </header>
 
-    <main>
-      <div class="full-screen-bg"></div>
+    <main class="pt-5 mt-0">
+      <div class="row" style="min-height: 100vh; margin-top: 15vh;">
+        <div class="col-10 offset-1">
+          <div class="content-container">
+            <h2 class="text-center" style="font-family: 'Pacifico', cursive">Book Your Stay!</h2>
+            <div class="bg-success card mt-4" style="border-radius: 40px;">
+              <form>
+                <div class="row p-3">
+                  <div class="col">
+                    <label class="form-label text-white h5"><i class="bi bi-calendar4-week h3"></i> Check-In</label>
+                    <input type="date" class="form-control" />
+                  </div>
+                  <div class="col">
+                    <label class="form-label text-white h5"><i class="bi bi-calendar4-week h3"></i> Check-Out</label>
+                    <input type="date" class="form-control" />
+                  </div>
+                  <div class="col">
+                    <label class="form-label text-white h5"><i class="bi bi-person-arms-up h3"></i> Guests</label>
+                    <select class="form-control">
+                      <option value="1" selected>1 Guest</option>
+                      <option value="2">2 Guests</option>
+                      <option value="3">3 Guests</option>
+                      <option value="4">4 Guests</option>
+                      <option value="5">5 Guests</option>
+                      <option value="6">6 Guests</option>
+                    </select>
+                  </div>
+                </div>
+                <a href="Book.html">
+                  <button type="button" class="btn btn-outline-light float-end mt-0 me-4 mb-3">Find A Room!</button>
+                </a>
+              </form>
+            </div>
+          </div>
+          <div class="text-center mt-3">
+          <a href="#adventure" class="nav-link link-light"><h5>Learn More!</h5></a>
+          <a href="#adventure" class="nav-link link-light"><i class="bi bi-arrow-down-circle-fill h3"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div id="adventure" style="min-height: 50vh;" class="bg-success text-center pt-4">
+        <h1 class="text-white" style="font-family: 'Pacifico', cursive">Prepare For Adventure!</h1>
+        <div class="d-flex justify-content-evenly p-5">
+          <div class="card" style="width: 20%;">
+            <img src="Img/hiking.jpg" class="card-img-top h-75" alt="...">
+            <div class="card-body">
+              <h2 style="font-family: 'Pacifico', cursive">Dine!</h2>
+              <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde dicta tenetur aperiam repellendus cum quas.</p>
+            </div>
+          </div>
+          <div class="card" style="width: 20%;">
+            <img src="Img/kyaking.jpg" class="card-img-top h-75" alt="...">
+            <div class="card-body">
+              <h2 style="font-family: 'Pacifico', cursive">Lounge!</h2>
+              <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde dicta tenetur aperiam repellendus cum quas.</p>
+            </div>
+          </div>
+          <div class="card" style="width: 20%;">
+            <img src="Img/whale.jpg" class="card-img-top h-75" alt="...">
+            <div class="card-body">
+              <h2 style="font-family: 'Pacifico', cursive">Explore!</h2>
+              <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde dicta tenetur aperiam repellendus cum quas.</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
 
-    <footer class="mt-5 pt-5 pb-3 text-center">
-      <div class="container">
-        <p>&copy; 2024 Moffat Bay Lodge. All Rights Reserved.</p>
+    <footer class="bg-dark pt-5">
+      <div class="container text-white">
+        <div class="row">
+          <div class="col-10 col-lg-2 offset-1 offset-lg-0 mt-4 mt-lg-0">
+            <h5>Learn More!</h5>
+            <ul class="nav flex-column">
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">Home</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">About The Bay</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">Things To Do</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">Contact Us</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">Register / Login</a></li>
+            </ul>
+          </div>
+    
+          <div class="col-10 offset-1 col-lg-5 mt-4 mt-lg-0">
+            <h5>Find Us!</h5>
+            <p><i class="bi bi-geo-alt-fill"></i> Moffat Bay Lodge, ADDRESS</p>
+            <p><i class="bi bi-telephone-fill"></i> Phone: (999) 999-9999</p>
+            <p>
+              <i class="bi bi-envelope-fill"></i> Email:
+              <a class="link-info" href="mailto:info@moffatbaylodge.com">test@test.com</a>
+            </p>
+            <p>
+              <i class="bi bi-clock-fill"></i> Office Hours: Mon - Fri, 6:00 AM
+              - 10:00 PM
+            </p>
+          </div>
+    
+          <div class="col-10 offset-1 col-lg-4 offset-lg-0 mt-4 mt-lg-0">
+            <form>
+              <h5>Subscribe!</h5>
+              <p>Join our mailing list for exclusive events and offers!</p>
+              <div class="d-flex w-100 gap-2">
+                <form>
+                  <input id="emailInput" type="email" class="form-control" placeholder="Email address" required>
+                  <button class="btn btn-primary" type="submit">Subscribe</button>
+                </form>
+              </div>
+            </form>
+          </div>
+        </div>
+    
+        <div class="d-flex justify-content-between pt-2 mt-4 border-top">
+          <p>&copy; 2024 Moffat Bay Lodge. All Rights Reserved.</p>
+          <ul class="list-unstyled d-flex">
+            <li class="ms-3"><a class="link-primary" href="https://www.facebook.com/" target="_blank"><i class="bi bi-facebook h2"></i></a></li>
+            <li class="ms-3"><a class="link-danger" href="https://www.instagram.com/" target="_blank"><i class="bi bi-instagram h2"></i></a></li>
+            <li class="ms-3"><a class="link-info" href="https://www.threads.net/" target="_blank"><i class="bi bi-threads-fill h2"></i></a></li>
+          </ul>
+        </div>
       </div>
     </footer>
   </body>

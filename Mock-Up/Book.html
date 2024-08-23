@@ -38,7 +38,7 @@
         position: relative;
       }
 
-      /* Add a dark overlay for readability */
+      /* Add a dark overlay for readability 
       body::before {
         content: "";
         position: absolute;
@@ -46,9 +46,10 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background: rgba(0, 0, 0, 0.5); /* Adjust opacity as needed */
+        background: rgba(0, 0, 0, 0.5);
         z-index: 1;
       }
+      */
 
       /* Ensure the content is above the overlay */
       .container {
@@ -104,16 +105,14 @@
   <body class="container-fluid p-0" style="overflow-x: hidden">
     <header>
       <nav
-        class="navbar navbar-expand-lg fixed-top mt-4 p-0"
-        style="background-color: rgba(0, 0, 0, 0.75)"
+        class="navbar navbar-expand-lg fixed-top p-0"
+        style="background-color: rgba(0, 0, 0, 0.85)"
         data-bs-theme="dark"
       >
-        <div class="container">
-          <a class="navbar-brand" href="#"
-            ><i class="bi bi-tsunami"></i> Moffat Bay Lodge</a
-          >
+        <div class="container ps-0">
+          <a class="navbar-brand ms-2" href="#"><i class="bi bi-tsunami"></i> Moffat Bay Lodge</a>
           <button
-            class="navbar-toggler"
+            class="navbar-toggler m-1"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarText"
@@ -126,7 +125,7 @@
           <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0 text-center">
               <li class="nav-item p-3">
-                <a class="nav-link active" aria-current="page" href="Index.html">Home</a>
+                <a class="nav-link" aria-current="page" href="Index.html">Home</a>
               </li>
               <li class="nav-item p-3">
                 <a class="nav-link" href="About.html">About The Bay</a>
@@ -138,10 +137,10 @@
                 <a class="nav-link" href="Contact.html">Contact Us</a>
               </li>
               <li class="nav-item p-3">
-                <a class="nav-link" href="Register.html">Register/ Login</a>
+                <a class="nav-link" href="Login.html">Login</a>
               </li>
               <li class="nav-item p-3 bg-success">
-                <a class="nav-link" href="Book.html">Book now</a>
+                <a class="nav-link active" href="Book.html">Book now</a>
               </li>
             </ul>
           </div>
