@@ -152,32 +152,8 @@
     </header>
 
     <main class="container mt-5 pb-5 mb-5 pt-5">
-      <div class="loginContainer">
-        <h2>Login</h2>
-        <form id="loginForm">
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" class="form-control" required />
-          </div>
-          <div class="form-group">
-            <label for="password">Password</label>
-            <input
-              type="password"
-              id="password"
-              class="form-control"
-              required
-            />
-            <a href="#" class="nav-link link-primary"><b>Forgot password?</b></a>
-          </div>
-          <div id="message"></div><br>
-          <button type="submit" class="btn btn-success">Login</button>
-        </form>
-        <div class="divider">
-          <hr class="line"><span>or</span><hr class="line">
-      </div>
-        <a link href="Register.html">
-          <button type="button" class="btn btn-primary text-white">Create An Account</button>
-        </a>
+      <div class="loginContainer" id="loginContainer">
+        <!--Populated in JavaScript-->
       </div>
     </main>
 
@@ -238,13 +214,18 @@
     <script src="PsudoDB.js"></script>
 
     <script>
-      document
+      $(document).ready(function() {
+        switchToLogin(); //On load we default to login
+    });
+
+      function addLoginListener() {
+        document
         .getElementById("loginForm")
         .addEventListener("submit", function (event) {
           event.preventDefault();
 
-          const email = document.getElementById("email").value;
-          const password = document.getElementById("password").value;
+          const email = document.getElementById("emailLogin").value;
+          const password = document.getElementById("passwordLogin").value;
 
           const user = signInUser(email, password);
 
@@ -260,6 +241,117 @@
               '<p class="error">Invalid email or password. Please try again.</p>';
           }
         });
+      }
+
+      function addRegistrationListener() {
+        document
+        .getElementById("registrationForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          const firstName = document.getElementById("firstName").value;
+          const lastName = document.getElementById("lastName").value;
+          const name = `${firstName} ${lastName}`;
+          const phone = document.getElementById("phone").value;
+          const email = document.getElementById("emailRegister").value;
+          const password = document.getElementById("passwordRegister").value;
+
+          if (emailTaken(email)) {
+            document.getElementById("message").innerHTML =
+              '<p class="error">Email is already taken.</p>';
+          } else {
+            const newUser = createUser(
+              firstName,
+              lastName,
+              phone,
+              email,
+              password
+            );
+            registerUser(newUser);
+            document.getElementById("message").innerHTML =
+              '<p class="success">Registration successful! Welcome, ' +
+              name +
+              ".</p>";
+            document.getElementById("registrationForm").reset();
+            // wait 2 seconds and redirect to index.html
+            setTimeout(() => {
+              window.location.href = "index.html";
+            }, 2000);
+          }
+        });
+      }
+      
+        const registrationHtml = `
+        <h2>Register</h2>
+        <form id="registrationForm">
+          <div class="form-group">
+            <label for="firstName">First Name</label>
+            <input type="text" id="firstName" class="form-control" required />
+          </div>
+          <div class="form-group">
+            <label for="lastName">Last Name</label>
+            <input type="text" id="lastName" class="form-control" required />
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" class="form-control" required />
+          </div>
+          <div class="form-group">
+            <label for="emailRegister">Email</label>
+            <input type="email" id="emailRegister" class="form-control" required />
+          </div>
+          <div class="form-group">
+            <label for="passwordRegister">Password</label>
+            <input
+              type="password"
+              id="passwordRegister"
+              class="form-control"
+              required
+            />
+          </div>
+          <button type="submit" class="btn btn-success">Register</button>
+          <div id="message"></div>
+          <div id="form-group">
+            <p>Already Registered? <a class="link" href="#" onClick="event.preventDefault(); switchToLogin();">Login</a></p>
+          </div>
+        </form>
+      `;
+
+      const loginHtml = `
+          <h2>Login</h2>
+          <form id="loginForm">
+            <div class="form-group">
+              <label for="emailLogin">Email</label>
+              <input type="email" id="emailLogin" class="form-control" required />
+            </div>
+            <div class="form-group">
+              <label for="passwordLogin">Password</label>
+              <input
+                type="password"
+                id="passwordLogin"
+                class="form-control"
+                required
+              />
+              <a href="#" class="nav-link link-primary"><b>Forgot password?</b></a>
+            </div>
+            <div id="message"></div><br>
+            <button type="submit" class="btn btn-success">Login</button>
+          </form>
+          <div class="divider">
+            <hr class="line"><span>or</span><hr class="line">
+          </div>
+            <button type="button" class="btn btn-primary text-white" onClick="switchToRegistration();">Create An Account</button>
+      `;
+
+      function switchToRegistration() {
+        $("#loginContainer").html(registrationHtml);
+        addRegistrationListener();
+      }
+
+      function switchToLogin() {
+        $("#loginContainer").html(loginHtml);
+        addLoginListener();
+      }
     </script>
   </body>
 </html>
