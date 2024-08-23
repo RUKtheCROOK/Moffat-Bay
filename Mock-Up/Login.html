@@ -29,13 +29,42 @@
 
     <!-- Custom CSS -->
     <style>
+            /* Set background image with opacity */
+      body {
+        background: url('Img/MoffatBayImage.jpg') no-repeat center center fixed;
+        background-size: cover;
+        color: black;
+        overflow-x: hidden;
+        position: relative;
+      }
+
+      /* Add a dark overlay for readability */
+      body::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5); /* Adjust opacity as needed */
+        z-index: 1;
+      }
+
+      /* Ensure the content is above the overlay */
+      .container {
+        position: relative;
+        z-index: 2;
+      }
+
       .loginContainer {
         max-width: 500px;
-        margin: 50px auto;
+        margin: 100px auto 50px auto; /* Increased margin-top to push down from navbar */
         padding: 30px;
         border: 1px solid #ced4da;
         border-radius: 10px;
         box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+        background-color: white; /* White background for the form */
+        color: black; /* Black text color for the form */
       }
       .loginContainer h2 {
         margin-bottom: 20px;
@@ -122,7 +151,10 @@
             />
           </div>
           <button type="submit" class="btn btn-success">Login</button>
-          <div id="message"></div>
+          <div id="message"></div><br>
+          <div id="form-group">
+            <p>New User? <a link href="Register.html">Register Now</a></p>
+          </div>
         </form>
       </div>
     </main>
