@@ -1,16 +1,16 @@
-<mxfile host="drawio-plugin" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36" modified="2024-08-30T01:22:34.052Z" etag="6x3mz5g-Vq_kZNlLPOJ6" version="22.1.22" type="embed">
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36" version="24.7.8">
   <diagram id="R2lEEEUBdFMjLlhIrx00" name="Page-1">
-    <mxGraphModel dx="637" dy="720" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0" extFonts="Permanent Marker^https://fonts.googleapis.com/css?family=Permanent+Marker">
+    <mxGraphModel dx="1321" dy="796" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0" extFonts="Permanent Marker^https://fonts.googleapis.com/css?family=Permanent+Marker">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="xTQfs5T80yT4qUn2D3Ki-52" value="Customer" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="480" y="445" width="160" height="120" as="geometry">
+          <mxGeometry x="480" y="445" width="160" height="155" as="geometry">
             <mxRectangle x="480" y="445" width="100" height="50" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="xTQfs5T80yT4qUn2D3Ki-53" value="PK |&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;CustomerId INT NOT NULL&lt;div&gt;FK | EmailId&lt;/div&gt;&lt;div&gt;+&lt;/div&gt;&lt;div&gt;+&lt;/div&gt;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;" parent="xTQfs5T80yT4qUn2D3Ki-52" vertex="1">
-          <mxGeometry y="50" width="160" height="70" as="geometry" />
+        <mxCell id="xTQfs5T80yT4qUn2D3Ki-53" value="PK |&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;CustomerId INT NOT NULL&lt;div&gt;FK | EmailId&lt;/div&gt;&lt;div&gt;+ first_name&lt;/div&gt;&lt;div&gt;+ last_name&lt;/div&gt;&lt;div&gt;+ address&lt;/div&gt;&lt;div&gt;+ telephone_number&lt;/div&gt;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;" parent="xTQfs5T80yT4qUn2D3Ki-52" vertex="1">
+          <mxGeometry y="50" width="160" height="105" as="geometry" />
         </mxCell>
         <mxCell id="xTQfs5T80yT4qUn2D3Ki-54" value="Reservation" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="760" y="445" width="170" height="135" as="geometry" />
@@ -75,7 +75,7 @@
         <mxCell id="xTQfs5T80yT4qUn2D3Ki-77" value="RoomType" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="1320" y="440" width="160" height="140" as="geometry" />
         </mxCell>
-        <mxCell id="xTQfs5T80yT4qUn2D3Ki-78" value="PK | RoomTypeID INT&lt;br&gt;+ PrimaryImageId INT&lt;div&gt;+&amp;nbsp;&lt;/div&gt;&lt;div&gt;+&amp;nbsp;&lt;/div&gt;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;" parent="xTQfs5T80yT4qUn2D3Ki-77" vertex="1">
+        <mxCell id="xTQfs5T80yT4qUn2D3Ki-78" value="PK | RoomTypeID INT&lt;br&gt;+ PrimaryImageId INT&lt;div&gt;+ view&lt;/div&gt;&lt;div&gt;+ bedding&lt;/div&gt;&lt;div&gt;+base_price&lt;/div&gt;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;" parent="xTQfs5T80yT4qUn2D3Ki-77" vertex="1">
           <mxGeometry y="50" width="160" height="90" as="geometry" />
         </mxCell>
         <mxCell id="xTQfs5T80yT4qUn2D3Ki-80" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=1.004;entryY=0.146;entryDx=0;entryDy=0;entryPerimeter=0;endArrow=none;endFill=0;startArrow=ERoneToMany;startFill=0;" parent="1" source="xTQfs5T80yT4qUn2D3Ki-77" target="xTQfs5T80yT4qUn2D3Ki-76" edge="1">
@@ -123,25 +123,26 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="17" value="Payment" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="360" y="645" width="190" height="140" as="geometry" />
+          <mxGeometry x="360" y="645" width="190" height="155" as="geometry" />
         </mxCell>
-        <mxCell id="20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.995;entryY=0.411;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="17">
+        <mxCell id="20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.995;entryY=0.411;entryDx=0;entryDy=0;entryPerimeter=0;" parent="17" edge="1">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="190" y="86.99000000000001" as="targetPoint" />
             <mxPoint x="510.95000000000005" y="-65" as="sourcePoint" />
             <Array as="points">
-              <mxPoint x="510.95000000000005" y="85" />
-              <mxPoint x="189.95000000000005" y="85" />
+              <mxPoint x="440" y="-65" />
+              <mxPoint x="440" y="85" />
+              <mxPoint x="190" y="85" />
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="18" value="PK | PaymentID INT NOT NULL&lt;div&gt;+ EmailAddress double&lt;/div&gt;&lt;div&gt;+&lt;/div&gt;&lt;div&gt;+&lt;/div&gt;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;" parent="17" vertex="1">
-          <mxGeometry y="50" width="190" height="90" as="geometry" />
+        <mxCell id="18" value="PK | PaymentID INT NOT NULL&lt;div&gt;FK | ReservationId&lt;br&gt;&lt;div&gt;+ EmailAddress double&lt;/div&gt;&lt;div&gt;+ amount&lt;/div&gt;&lt;div&gt;+ payment_date&lt;/div&gt;&lt;div&gt;+ payment_method&lt;/div&gt;&lt;/div&gt;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;" parent="17" vertex="1">
+          <mxGeometry y="50" width="190" height="105" as="geometry" />
         </mxCell>
-        <mxCell id="22" value="Text" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+        <mxCell id="22" value="Text" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="170" y="700" width="60" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="26" value="Text" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+        <mxCell id="26" value="Text" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="690" y="770" width="60" height="30" as="geometry" />
         </mxCell>
       </root>
