@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal" created-in="PY-242.20224.428">
+    <data-source name="MoffatBayLodge_Dev" uuid="c974cda9-c6bf-45ee-9d17-771e3d882241">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MYSQL" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>csd460_dev</user-name>
+      <schema-mapping />
+    </data-source>
+  </component>
+</project>

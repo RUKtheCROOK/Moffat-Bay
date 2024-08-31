@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="MoffatBayLodge_Dev">
+  <database-model serializer="dbm" dbms="MARIADB" family-id="MARIADB" format-version="4.53">
+    <root id="1">
+      <DefaultCasing>lower/lower</DefaultCasing>
+      <DefaultEngine>InnoDB</DefaultEngine>
+      <ServerVersion>10.5.25</ServerVersion>
+    </root>
+    <schema id="2" parent="1" name="information_schema">
+      <CollationName>utf8_general_ci</CollationName>
+    </schema>
+    <schema id="3" parent="1" name="moffatbaylodge_dev">
+      <LastIntrospectionLocalTimestamp>2024-08-31.03:10:44</LastIntrospectionLocalTimestamp>
+      <CollationName>utf8_general_ci</CollationName>
+    </schema>
+  </database-model>
+</dataSource>
