@@ -8,6 +8,8 @@ DROP TABLE IF EXISTS RoomType;
 DROP TABLE IF EXISTS PasswordResetRequest;
 DROP TABLE IF EXISTS Session;
 DROP TABLE IF EXISTS User;
+DROP TABLE IF EXISTS Attractions;
+DROP TABLE IF EXISTS ReservationAttraction;
 
 CREATE TABLE User (
     UserID INT AUTO_INCREMENT PRIMARY KEY,
@@ -58,6 +60,23 @@ CREATE TABLE ReservationAmenity (
     FOREIGN KEY (AmenityID) REFERENCES Amenity(AmenityID) ON DELETE CASCADE
 );
 
+CREATE TABLE Attractions (
+    AttractionID INT AUTO_INCREMENT PRIMARY KEY,
+    AttractionName VARCHAR(255) NOT NULL,
+    Description TEXT,
+    Price DECIMAL(10, 2) NOT NULL
+);
+
+CREATE TABLE ReservationAttraction (
+    ReservationAttractionID INT AUTO_INCREMENT PRIMARY KEY,
+    ReservationID INT NOT NULL,
+    AttractionID INT NOT NULL,
+    Quantity TINYINT NOT NULL,
+    TotalPrice DECIMAL(10, 2) NOT NULL,
+    FOREIGN KEY (ReservationID) REFERENCES Reservation(ReservationID) ON DELETE CASCADE,
+    FOREIGN KEY (AttractionID) REFERENCES Attractions(AttractionID) ON DELETE CASCADE
+);
+
 CREATE TABLE Session (
     SessionID INT AUTO_INCREMENT PRIMARY KEY,
     UserID INT NOT NULL,
@@ -95,11 +114,23 @@ VALUES
 (2, 'test2@email.com', 'King', 3, '2024-09-10', '2024-09-14', 600.00, 'Confirmed'),
 (3, 'test3@email.com', 'Double Full Beds', 1, '2024-09-15', '2024-09-18', 345.00, 'Canceled');
 
-INSERT INTO Amenity (AmenityName, Description, Price)
+INSERT INTO Attractions (AttractionName, Description, Price)
 VALUES 
 ('Kayaking', 'Enjoy a scenic kayak ride', 50.00),
 ('Whale Watching', 'Observe the magnificent whales', 75.00),
 ('Scuba Diving', 'Explore the underwater world', 100.00);
+
+INSERT INTO ReservationAttraction (ReservationID, AttractionID, Quantity, TotalPrice)
+VALUES 
+(1, 1, 2, 100.00),
+(2, 2, 1, 75.00),
+(3, 3, 1, 100.00);
+
+INSERT INTO Amenity (AmenityName, Description, Price)
+VALUES 
+('Breakfast', 'Delicious breakfast options', 50.00),
+('Pool Access', 'Access to use the private pool', 75.00),
+('Room Service', 'Convenient room service options', 100.00);
 
 INSERT INTO ReservationAmenity (ReservationID, AmenityID, Quantity, TotalPrice)
 VALUES 
