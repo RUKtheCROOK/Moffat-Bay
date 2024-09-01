@@ -17,7 +17,6 @@ CREATE TABLE User (
     PhoneNumber VARCHAR(20),
     PasswordHash VARCHAR(255) NOT NULL,
     Salt VARCHAR(255) NOT NULL,
-    GuestFlag BOOLEAN DEFAULT FALSE,
     CreatedAt DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -78,11 +77,11 @@ CREATE TABLE PasswordResetRequest (
     FOREIGN KEY (UserID) REFERENCES User(UserID) ON DELETE CASCADE
 );
 
-INSERT INTO User (FirstName, LastName, Email, PhoneNumber, PasswordHash, Salt, GuestFlag)
+INSERT INTO User (FirstName, LastName, Email, PhoneNumber, PasswordHash, Salt)
 VALUES 
-('John', 'Doe', 'test1@email.com', '1234567890', 'password1', 'salt1', FALSE),
-('Jane', 'Smith', 'test2@email.com', '0987654321', 'password2', 'salt2', FALSE),
-('Alice', 'Johnson', 'test3@email.com', '1122334455', 'password3', 'salt3', TRUE); --guest!!
+('John', 'Doe', 'test1@email.com', '1234567890', 'password1', 'salt1'),
+('Jane', 'Smith', 'test2@email.com', '0987654321', 'password2', 'salt2'),
+('Alice', 'Johnson', 'test3@email.com', '1122334455', 'password3', 'salt3'); 
 
 INSERT INTO RoomType (RoomTypeName, BasePrice, MaxGuests)
 VALUES 
