@@ -7,9 +7,9 @@ DROP TABLE IF EXISTS Amenity;
 DROP TABLE IF EXISTS RoomType;
 DROP TABLE IF EXISTS PasswordResetRequest;
 DROP TABLE IF EXISTS Session;
-DROP TABLE IF EXISTS RegisteredUser;
+DROP TABLE IF EXISTS User;
 
-CREATE TABLE RegisteredUser (
+CREATE TABLE User (
     UserID INT AUTO_INCREMENT PRIMARY KEY,
     FirstName VARCHAR(255) NOT NULL,
     LastName VARCHAR(255) NOT NULL,
@@ -39,7 +39,7 @@ CREATE TABLE Reservation (
     TotalPrice DECIMAL(10, 2) NOT NULL,
     ReservationStatus ENUM('Confirmed', 'Canceled') DEFAULT 'Confirmed',
     CreatedAt DATETIME DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (UserID) REFERENCES RegisteredUser(UserID) ON DELETE SET NULL
+    FOREIGN KEY (UserID) REFERENCES User(UserID) ON DELETE SET NULL
 );
 
 CREATE TABLE Amenity (
@@ -65,7 +65,7 @@ CREATE TABLE Session (
     SessionToken VARCHAR(255) UNIQUE NOT NULL,
     CreatedAt DATETIME DEFAULT CURRENT_TIMESTAMP,
     ExpiresAt DATETIME,
-    FOREIGN KEY (UserID) REFERENCES RegisteredUser(UserID) ON DELETE CASCADE
+    FOREIGN KEY (UserID) REFERENCES User(UserID) ON DELETE CASCADE
 );
 
 CREATE TABLE PasswordResetRequest (
@@ -75,10 +75,10 @@ CREATE TABLE PasswordResetRequest (
     CreatedAt DATETIME DEFAULT CURRENT_TIMESTAMP,
     ExpiresAt DATETIME,
     Used BOOLEAN DEFAULT FALSE,
-    FOREIGN KEY (UserID) REFERENCES RegisteredUser(UserID) ON DELETE CASCADE
+    FOREIGN KEY (UserID) REFERENCES User(UserID) ON DELETE CASCADE
 );
 
-INSERT INTO RegisteredUser (FirstName, LastName, Email, PhoneNumber, PasswordHash, Salt, GuestFlag)
+INSERT INTO User (FirstName, LastName, Email, PhoneNumber, PasswordHash, Salt, GuestFlag)
 VALUES 
 ('John', 'Doe', 'test1@email.com', '1234567890', 'password1', 'salt1', FALSE),
 ('Jane', 'Smith', 'test2@email.com', '0987654321', 'password2', 'salt2', FALSE),
