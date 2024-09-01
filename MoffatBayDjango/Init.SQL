@@ -91,9 +91,9 @@ VALUES
 
 INSERT INTO Reservation (UserID, Email, RoomType, NumberOfGuests, CheckInDate, CheckOutDate, TotalPrice, ReservationStatus)
 VALUES 
-(1, 'john.doe@example.com', 'Queen', 2, '2024-09-01', '2024-09-07', 805.00, 'Confirmed'),
-(NULL, 'guest@example.com', 'King', 3, '2024-09-10', '2024-09-14', 600.00, 'Confirmed'),
-(3, 'alice.johnson@example.com', 'Double Full Beds', 1, '2024-09-15', '2024-09-18', 345.00, 'Canceled');
+(1, 'test1@email.com', 'Queen', 2, '2024-09-01', '2024-09-07', 805.00, 'Confirmed'),
+(2, 'test2@email.com', 'King', 3, '2024-09-10', '2024-09-14', 600.00, 'Confirmed'),
+(3, 'test3@email.com', 'Double Full Beds', 1, '2024-09-15', '2024-09-18', 345.00, 'Canceled');
 
 INSERT INTO Amenity (AmenityName, Description, Price)
 VALUES 
