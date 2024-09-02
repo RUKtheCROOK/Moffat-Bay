@@ -1,0 +1,17 @@
+body {
+    background: url('Img/MoffatBayImage.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: black;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  /* White container styling */
+  .content-container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 40px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    color: #333;
+    margin-top: 80px;
+  }

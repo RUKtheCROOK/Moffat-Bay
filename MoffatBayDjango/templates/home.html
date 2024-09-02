@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block title %}Welcome to Moffat Bay Lodge{% endblock %}
+
+{% block stylesheet %} {% static 'home.css' %} {% endblock %}
+
+{% block extra_head %}{% endblock %}
+
+{% block content %}
+<div class="content-container">
+  <h1>Welcome to Moffat Bay Lodge</h1>
+  <p>Experience the beauty and serenity of Moffat Bay.</p>
+  <h3>You are currently in home.html, but the background and navbar is coming from base.html</h3>
+</div>
+{% endblock %}
+
+{% comment %} 
+For all other html files that are made please follow these steps:
+- Create a new file in the templates folder. For example; about.html
+- Copy the contents of the home.html file into the new file
+- Change the title of the page in the title block. For example; {% block title %}About Moffat Bay Lodge{% endblock %}
+** Notes: The header will be the same header as the base.html file. Anything that is put into the content block or title blocks on this page will replace the content in the base.html file.
+- Change the content of the page in the content block. For example; {% block content %}<p> this is the content of the about page </p>{% endblock %}
+- Save the file with the name of the page you want to create
+- Create a new view in the views.py file in the Pages app(they are called apps). For example; class AboutPageView(TemplateView): template_name = 'about.html'
+- Create a new URL path in the urls.py file in the Pages app and follow the page with a slash. For example; path('about/', AboutPageView.as_view(), name='about'),
+-Normally the Pages urls would need to be imported into the Config urls.py file, then used in the file, though that has already been handled for the pages app.
+-Lastly, if you want to add the newly created template to the navbar, put it in the href of the anchor tag in the base.html file. What is put in the url tag depends on what it is named in the urls.py file in the Pages app. In this case, about/ was given the name 'about'. For example; <a class="nav-link" href="{% url 'about' %}">About The Bay</a>
+{% endcomment %}
+
+{% comment %} 
+One last helpful comment. If you are trying to LOAD ANYTHING FROM the static folder, which should be images or CSS files, before you use that thing, you must include a {% load static %} block above that. You will see that I included this on every page 
+{% endcomment %}
