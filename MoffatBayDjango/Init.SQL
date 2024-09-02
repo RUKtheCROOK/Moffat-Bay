@@ -1,6 +1,7 @@
 -- Begin transaction to allow rollback if needed
 START TRANSACTION;
 
+SET foreign_key_checks = 0;
 DROP TABLE IF EXISTS ReservationAmenity;
 DROP TABLE IF EXISTS Reservation;
 DROP TABLE IF EXISTS Amenity;
@@ -10,7 +11,11 @@ DROP TABLE IF EXISTS Session;
 DROP TABLE IF EXISTS User;
 DROP TABLE IF EXISTS Attractions;
 DROP TABLE IF EXISTS ReservationAttraction;
+DROP PROCEDURE IF EXISTS spLogin;
 
+-- ====================================================================================================================
+-- 													Setup Tables
+-- ====================================================================================================================
 CREATE TABLE User (
     UserID INT AUTO_INCREMENT PRIMARY KEY,
     FirstName VARCHAR(255) NOT NULL,
@@ -96,11 +101,16 @@ CREATE TABLE PasswordResetRequest (
     FOREIGN KEY (UserID) REFERENCES User(UserID) ON DELETE CASCADE
 );
 
+-- Create some salts for the test users
+SET @var_salt1 = LEFT(REPLACE(UUID(), '-', ''), 16);
+SET @var_salt2 = LEFT(REPLACE(UUID(), '-', ''), 16);
+SET @var_salt3 = LEFT(REPLACE(UUID(), '-', ''), 16);
+
 INSERT INTO User (FirstName, LastName, Email, PhoneNumber, PasswordHash, Salt)
 VALUES 
-('John', 'Doe', 'test1@email.com', '1234567890', 'password1', 'salt1'),
-('Jane', 'Smith', 'test2@email.com', '0987654321', 'password2', 'salt2'),
-('Alice', 'Johnson', 'test3@email.com', '1122334455', 'password3', 'salt3'); 
+('John', 'Doe', 'test1@email.com', '1234567890', SHA2(CONCAT('password1', @var_salt1), 256), @var_salt1),
+('Jane', 'Smith', 'test2@email.com', '0987654321', SHA2(CONCAT('password2', @var_salt1), 256), @var_salt2),
+('Alice', 'Johnson', 'test3@email.com', '1122334455', SHA2(CONCAT('password3', @var_salt1), 256), @var_salt3); 
 
 INSERT INTO RoomType (RoomTypeName, BasePrice, MaxGuests)
 VALUES 
@@ -149,6 +159,78 @@ VALUES
 (1, 'reset_token_1', '2024-09-01 23:59:59'),
 (2, 'reset_token_2', '2024-09-02 23:59:59'),
 (3, 'reset_token_3', '2024-09-03 23:59:59');
+
+SET foreign_key_checks = 1;
+
+
+
+-- ====================================================================================================================
+--												Setup Stored Procedures
+-- ====================================================================================================================
+DELIMITER $$
+
+CREATE PROCEDURE spLogin(
+-- =============================================
+-- Author:      Drew Bach
+-- Create Date: 09/02/2024
+-- Description: Verify the users email and password match what we have in the database and return a session token.
+--				Else Return null.
+-- =============================================
+--	Parameters
+    IN param_email VARCHAR(255),
+    IN param_password VARCHAR(255),
+    OUT out_sessionToken VARCHAR(255)
+)
+BEGIN
+	DECLARE var_userID INT;
+    DECLARE var_passHash BINARY(64);
+    DECLARE var_salt BINARY(16);
+    DECLARE var_sessionToken VARCHAR(255);
+    
+    -- Grab the user from the database if they exist
+    SELECT UserID, PasswordHash, Salt INTO var_userID, var_passHash, var_salt
+    FROM user
+    WHERE email = param_email
+    LIMIT 1;
+    
+    IF var_userID IS NOT NULL THEN
+        -- We need to hash the password the user entered with the users salt so we can compare it
+        SET @calculated_hash = SHA2(CONCAT(param_password, var_salt), 256);
+        
+        IF @calculated_hash = var_passHash THEN
+			-- Clear out sessions for the user before we create a new session
+            DELETE FROM Session
+			WHERE UserID = var_userID;
+        
+            -- We then create a new UUID() to store as out session token
+            SET var_sessionToken = UUID();
+            
+            INSERT INTO Session (
+				UserID,
+                SessionToken,
+                CreatedAt,
+                ExpiresAt
+			)
+            VALUES (
+				var_userID,
+                var_sessionToken,
+                NOW(),
+                DATE_ADD(NOW(), INTERVAL 48 HOUR)
+			);
+            
+            -- Return the session token
+            SET out_sessionToken = var_sessionToken;
+        ELSE
+            -- If the password comparison failed, return null and then we will have to handle it on the backend
+            SET out_sessionToken = NULL;
+        END IF;
+    ELSE
+        -- Same for email, if a user doesn't exist we will return null and handle the status we want to return on the backend
+        SET out_sessionToken = NULL;
+    END IF;
+END$$
+
+DELIMITER ;
 
 -- Commit transaction assuming there were no errors up to this point
 COMMIT;
