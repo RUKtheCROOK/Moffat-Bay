@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/landing_page.css' %}">
+<div class="landing-page">
+    <header>
+        <h1>Welcome to Moffat Bay Lodge</h1>
+        <p>Your perfect island getaway awaits</p>
+    </header>
+    
+    <section class="highlights">
+        <div class="highlight">
+            <h2>Breathtaking Views</h2>
+            <p>Wake up to stunning ocean vistas every morning</p>
+        </div>
+        <div class="highlight">
+            <h2>Luxurious Rooms</h2>
+            <p>Relax in comfort with our range of accommodations</p>
+        </div>
+        <div class="highlight">
+            <h2>Island Adventures</h2>
+            <p>Explore hiking trails, kayaking, whale watching, and more</p>
+        </div>
+    </section>
+    
+    <section class="cta">
+        <h2>Start Your Adventure Today</h2>
+        <a href="{% url 'book_reservation' %}" class="btn">Book Now</a>
+    </section>
+</div>
+{% endblock %}
