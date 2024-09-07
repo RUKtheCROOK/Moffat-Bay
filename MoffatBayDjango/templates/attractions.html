@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block title %}Things To Do{% endblock %}
+
+{% block stylesheet %} {% static 'home.css' %} {% endblock %}
+
+{% block extra_head %}{% endblock %}
+
+{% block content %}
+    <main class="container mt-5 pt-5">
+      <h1 class="text-center mt-4">Things To Do</h1>
+      <p class="text-center mb-5">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Alias nostrum
+        quidem illo commodi ex consequatur, expedita vel! Iusto, cumque minima
+        incidunt, vero ducimus fugiat amet repellendus ullam, provident
+        perspiciatis ab.
+      </p>
+
+      <div class="row">
+        <div class="col-md-6">
+          <div class="attractionContainer">
+            <img src="{% static 'Img/hiking.jpg' %}" alt="Hiking Trails" class="img-fluid" />
+            <h3>Hiking</h3>
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et
+              pariatur quis, laboriosam dolor obcaecati explicabo cupiditate qui
+              atque nesciunt, quaerat dignissimos ipsam corporis vitae?
+            </p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="attractionContainer">
+            <img src="{% static 'Img/kyaking.jpg' %}" alt="Kayaking" class="img-fluid" />
+            <h3>Kayaking</h3>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis
+              nostrum praesentium rerum doloremque autem perferendis unde! Nobis
+              eius, eum quidem architecto consequatur ratione accusamus.
+              Distinctio doloremque quaerat ab?
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6">
+          <div class="attractionContainer">
+            <img
+              src="{% static 'Img/whale.jpg' %}"
+              alt="Whale Watching"
+              class="img-fluid"
+              style="height: 300px"
+            />
+            <h3>Whale Watching</h3>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit
+              perferendis sunt placeat! Tenetur ad minima voluptas placeat,
+              tempore dicta atque illum iusto repellat, maxime doloremque
+              voluptatibus nobis quos a earum, mollitia debitis quo? Accusamus,
+              aspernatur temporibus sapiente amet vel impedit.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="attractionContainer">
+            <img src="{% static 'Img/scuba.jpg' %}" alt="Scuba Diving" class="img-fluid" />
+            <h3>Scuba Diving</h3>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Temporibus ipsa, sunt, vitae quo nisi cum excepturi adipisci et,
+              voluptates nesciunt qui reiciendis earum illum iusto.
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+{% endblock %}
+
