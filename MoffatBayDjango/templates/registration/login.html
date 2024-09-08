@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% load static %}
-{% block title %}Login {% endblock %}
+{% block title %}Login{% endblock %}
 
 {% block stylesheet %} {% static 'home.css' %} {% endblock %}
 
@@ -10,7 +10,12 @@
 {% block content %}
 <div class="content-container">
   <h1>Login </h1>
-  <p>Content coming soon</p>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Login</button>
+  </form>
+  <p>Don't have an account? <a href="{% url 'signup' %}">Sign up</a></p>
   <h3>You are currently in login.html, but the background and navbar is coming from base.html</h3>
 </div>
 {% endblock %}

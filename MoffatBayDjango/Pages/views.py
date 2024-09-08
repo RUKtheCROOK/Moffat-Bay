@@ -18,9 +18,6 @@ class BookPageView(TemplateView):
 class ContactPageView(TemplateView):
     template_name = 'contact.html'
 
-class LoginPageView(TemplateView):
-    template_name = 'login.html'
-
 # class AboutPageView(TemplateView):
 #
 #     template_name = 'about.html'

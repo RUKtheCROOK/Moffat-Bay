@@ -9,7 +9,11 @@
 
 {% block content %}
 <div class="content-container">
+  {% if request.user.is_authenticated %}
+  <h1>Welcome to Moffat Bay Lodge <b>{{ request.user.first_name }} {{request.user.last_name}}</b></h1>
+  {% else %}
   <h1>Welcome to Moffat Bay Lodge</h1>
+  {% endif %}
   <p>Experience the beauty and serenity of Moffat Bay.</p>
   <h3>You are currently in home.html, but the background and navbar is coming from base.html</h3>
 </div>

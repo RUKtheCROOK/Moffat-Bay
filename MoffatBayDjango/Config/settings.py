@@ -76,9 +76,14 @@ WSGI_APPLICATION = 'Config.wsgi.application'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASES = {
+    # make the default database a mySql database
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'MoffatBayLodge_Dev',
+        'USER': 'Somsak',
+        'PASSWORD': 'Somsak1!',
+        'HOST': 'plesk5900.is.cc',
+        'PORT': '3306',
     }
 }
 
@@ -131,3 +136,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' #TODO replace with email backend server
+AUTHENTICATION_BACKENDS = ['Accounts.backend.CustomUserBackend']
+AUTH_USER_MODEL = 'Accounts.CustomUser'
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'
+SESSION_COOKIE_NAME = 'sessionid'
