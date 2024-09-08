@@ -1,0 +1,162 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>{% block title %}{% endblock %}</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" href="{% static 'base.css'%}" />
+    {% comment %} extra style that can be made to keep each pages style separate {% endcomment %}
+    <link rel="stylesheet" href="{% block link %}{% endblock link %}" />
+
+    <!-- Bootstrap 5 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+    {% block extra_head %}{% endblock %}
+  </head>
+  <body class="container-fluid p-0" style="overflow-x: hidden">
+    <header>
+          <nav
+      class="navbar navbar-expand-lg fixed-top p-0"
+      style="background-color: rgba(0, 0, 0, 0.85)"
+      data-bs-theme="dark"
+          >
+      <div class="container ps-0">
+        <a class="navbar-brand ms-2" href="#"><i class="bi bi-tsunami"></i> Moffat Bay Lodge</a>
+        <button
+          class="navbar-toggler m-1"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarText"
+          aria-controls="navbarText"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0 text-center">
+            <li class="nav-item p-3">
+              <a class="nav-link {% if page_type == 'home' %}active{% endif %}" aria-current="page" href="{% url 'home' %}">Home</a>
+            </li>
+            <li class="nav-item p-3">
+              <a class="nav-link {% if page_type == 'about' %}active{% endif %}" href="{% url 'about' %}">About The Bay</a>
+            </li>
+            <li class="nav-item p-3">
+              <a class="nav-link {% if page_type == 'attractions' %}active{% endif %}" href="{% url 'attractions' %}">Things To Do</a>
+            </li>
+            <li class="nav-item p-3">
+              <a class="nav-link {% if page_type == 'contact' %}active{% endif %}" href="{% url 'contact' %}">Contact Us</a>
+            </li>
+
+            {% if request.user.is_authenticated %}
+              <li class="nav-item dropdown p-3">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <i class="bi bi-person-circle"></i> My Account
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">My Reservations</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
+                </ul>
+              </li>
+            {% else %}
+            <li class="nav-item p-3">
+              <a class="nav-link {% if page_type == 'signup/login' %}active{% endif %}" href="{% url 'login' %}">Login</a>
+            </li>
+            {% endif %}
+
+            <li class="nav-item p-3 bg-success">
+              <a class="nav-link {% if page_type == 'book' %}active{% endif %}" href="{% url 'book' %}">Book now</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+    <main class="container" style="margin-top: 120px; margin-bottom: 60px; min-height: 60vh;">
+      {% block content %}{% endblock %}
+    </main>
+
+    <footer class="bg-dark pt-5">
+      <div class="container text-white">
+        <div class="row">
+          <div class="col-10 col-lg-2 offset-1 offset-lg-0 mt-4 mt-lg-0">
+            <h5>Learn More!</h5>
+            <ul class="nav flex-column">
+              <li class="nav-item mb-2"><a href="{% url 'home' %}" class="nav-link p-0 text-white">Home</a></li>
+              <li class="nav-item mb-2"><a href="{% url 'about' %}" class="nav-link p-0 text-white">About The Bay</a></li>
+              <li class="nav-item mb-2"><a href="#{% url 'attractions' %}" class="nav-link p-0 text-white">Things To Do</a></li>
+              <li class="nav-item mb-2"><a href="{% url 'contact' %}" class="nav-link p-0 text-white">Contact Us</a></li>
+              <li class="nav-item mb-2"><a href="{% url 'login' %}" class="nav-link p-0 text-white">Register / Login</a></li>
+            </ul>
+          </div>
+
+          <div class="col-10 offset-1 col-lg-5 mt-4 mt-lg-0">
+            <h5>Find Us!</h5>
+            <p><i class="bi bi-geo-alt-fill"></i> Moffat Bay Lodge <br /> 1234 Orca Point Road <br /> Eastsound, WA 98245</p>
+            <p>
+              <i class="bi bi-telephone-fill"></i> Phone:
+              <a href="tel:3605557890" class="link-info">(360) 555-7890</a>
+            </p>
+            <p>
+              <i class="bi bi-envelope-fill"></i> Email:
+              <a class="link-info" href="mailto:info@moffatbaylodge.com">info@moffatbaylodge.com</a>
+            </p>
+            <p>
+              <i class="bi bi-clock-fill"></i> Office Hours: Mon - Fri, 6:00 AM
+              - 10:00 PM
+            </p>
+          </div>
+
+          <div class="col-10 offset-1 col-lg-4 offset-lg-0 mt-4 mt-lg-0">
+            <form>
+              <h5>Subscribe!</h5>
+              <p>Join our mailing list for exclusive events and offers!</p>
+              <div class="d-flex w-100 gap-2">
+                <form>
+                  <input id="emailInput" type="email" class="form-control" placeholder="Email address" required>
+                  <button class="btn btn-primary" type="submit">Subscribe</button>
+                </form>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="d-flex justify-content-between pt-2 mt-4 border-top">
+          <p>&copy; 2024 Moffat Bay Lodge. All Rights Reserved.</p>
+          <ul class="list-unstyled d-flex">
+            <li class="ms-3"><a class="link-primary" href="https://www.facebook.com/" target="_blank"><i class="bi bi-facebook h2"></i></a></li>
+            <li class="ms-3"><a class="link-danger" href="https://www.instagram.com/" target="_blank"><i class="bi bi-instagram h2"></i></a></li>
+            <li class="ms-3"><a class="link-info" href="https://www.threads.net/" target="_blank"><i class="bi bi-threads-fill h2"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+    {% block extra_scripts %}{% endblock %}
+  </body>
+</html>
