@@ -1,22 +1,30 @@
 {% extends 'base.html' %}
 
 {% load static %}
-{% block title %}Login{% endblock %}
+{% block title %}{{ page_title }}{% endblock %}
 
 {% block stylesheet %} {% static 'home.css' %} {% endblock %}
 
 {% block extra_head %}{% endblock %}
 
 {% block content %}
-<div class="content-container">
-  <h1>Login </h1>
-  <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Login</button>
-  </form>
-  <p>Don't have an account? <a href="{% url 'signup' %}">Sign up</a></p>
-  <h3>You are currently in login.html, but the background and navbar is coming from base.html</h3>
+<div class="row mt-5">
+  <div class="content-container loginContainer offset-1 col-10 offset-md-3 col-md-6 offset-lg-4 col-lg-4 text-center">
+    <h2>Login </h2>
+    <form method="post">
+      <div class="text-start">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <a href="#" class="nav-link link-primary"><b>Forgot password?</b></a>
+      </div>
+      <br />
+      <button type="submit" class="btn btn-success">Login</button>
+    </form>
+    <div class="divider">
+      <hr class="line"><span>or</span><hr class="line">
+    </div>
+    <a href="{% url 'signup' %}" class="btn btn-primary text-white">Create An Account</a>
+  </div>
 </div>
 {% endblock %}
 
