@@ -8,7 +8,9 @@
 {% block extra_head %}{% endblock %}
 
 {% block content %}
-    <main class="container mt-5 pt-5">
+<div class="row">
+  <div class="col-12">
+    <div class="content-container mt-0">
       <h1 class="text-center mt-4">Things To Do</h1>
       <p class="text-center mb-5">
         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Alias nostrum
@@ -18,7 +20,7 @@
       </p>
 
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-6">
           <div class="attractionContainer">
             <img src="{% static 'Img/hiking.jpg' %}" alt="Hiking Trails" class="img-fluid" />
             <h3>Hiking</h3>
@@ -29,7 +31,7 @@
             </p>
           </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-6">
           <div class="attractionContainer">
             <img src="{% static 'Img/kyaking.jpg' %}" alt="Kayaking" class="img-fluid" />
             <h3>Kayaking</h3>
@@ -44,7 +46,7 @@
       </div>
 
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-6">
           <div class="attractionContainer">
             <img
               src="{% static 'Img/whale.jpg' %}"
@@ -62,7 +64,7 @@
             </p>
           </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-6">
           <div class="attractionContainer">
             <img src="{% static 'Img/scuba.jpg' %}" alt="Scuba Diving" class="img-fluid" />
             <h3>Scuba Diving</h3>
@@ -74,6 +76,8 @@
           </div>
         </div>
       </div>
-    </main>
+    </div>
+  </div>
+</div>
 {% endblock %}
 

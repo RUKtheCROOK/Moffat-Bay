@@ -48,3 +48,17 @@ body {
   font-size: 18px;
   margin: 0 8px;
 }
+
+.attractionContainer {
+  border: none;
+  margin-bottom: 30px;
+}
+.attractionContainer img {
+  border-radius: 10px;
+}
+.attractionContainer h3 {
+  margin-top: 15px;
+}
+.attractionContainer p {
+  margin-top: 10px;
+}
