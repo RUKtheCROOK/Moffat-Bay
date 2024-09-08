@@ -4,11 +4,24 @@ from django.contrib.auth.hashers import make_password, check_password
 import uuid
 
 class CustomUserCreationForm(forms.ModelForm):
-    password = forms.CharField(widget=forms.PasswordInput, min_length=8)
-
+    password = forms.CharField(
+        widget=forms.PasswordInput(attrs={
+            'class': 'form-control',  # Bootstrap class for styling
+            'minlength': '8',
+            'placeholder': 'Password'
+        }),
+        min_length=8
+    )
+    
     class Meta:
         model = CustomUser
         fields = ['first_name', 'last_name', 'email', 'phone', 'password']
+        widgets = {
+            'first_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'First Name'}),
+            'last_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Last Name'}),
+            'email': forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Email'}),
+            'phone': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Phone'}),
+        }
 
     def clean_password(self):
         password = self.cleaned_data.get('password')
@@ -35,8 +48,18 @@ class CustomUserCreationForm(forms.ModelForm):
     
 
 class CustomUserLoginForm(forms.Form):
-    email = forms.EmailField()
-    password = forms.CharField(widget=forms.PasswordInput)
+    email = forms.EmailField(
+        widget=forms.EmailInput(attrs={
+            'class': 'form-control',
+            'required': 'required'
+        })
+    )
+    password = forms.CharField(
+        widget=forms.PasswordInput(attrs={
+            'class': 'form-control',
+            'required': 'required'
+        })
+    )
 
     def clean(self):
         cleaned_data = super().clean()

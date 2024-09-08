@@ -135,8 +135,16 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Redirect to home URL after login (Default redirects to /accounts/profile/)
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' #TODO replace with email backend server
 AUTHENTICATION_BACKENDS = ['Accounts.backend.CustomUserBackend']
 AUTH_USER_MODEL = 'Accounts.CustomUser'
 SESSION_ENGINE = 'django.contrib.sessions.backends.db'
 SESSION_COOKIE_NAME = 'sessionid'
+
+#Email Sender
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'MoffatBay.andrewbachcodes.com'  # Your SMTP server address
+EMAIL_PORT = 465  # Typically 587 for TLS or 465 for SSL
+EMAIL_USE_SSL = True  # Set to True if you're using SSL
+EMAIL_HOST_USER = 'no-reply@moffatbay.andrewbachcodes.com'  # Your email address
+EMAIL_HOST_PASSWORD = 'Capstone1!'  # Your email password
+DEFAULT_FROM_EMAIL = 'no-reply@moffatbay.andrewbachcodes.com'  # Default from email address
