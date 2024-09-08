@@ -19,15 +19,6 @@ class CustomUser(AbstractUser):
     is_staff = models.BooleanField(default=False, db_column='IsStaff')
     is_active = models.BooleanField(default=True, db_column='IsActive')
     date_joined = models.DateTimeField(default=timezone.now, db_column='DateJoined')
-    # username = models.CharField(max_length=150, db_column='Username', default='default')
-    # password = models.CharField(max_length=128, db_column='Password', blank=True, null=True)
-
-    # is_superuser = None
-    # is_staff = None
-    # is_active = None
-    # date_joined = None
-    # username = None
-    # password = None
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['first_name', 'last_name', 'phone', 'password_hash', 'password_salt']

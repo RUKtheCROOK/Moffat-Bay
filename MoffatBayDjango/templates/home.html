@@ -3,21 +3,79 @@
 {% load static %}
 {% block title %}Welcome to Moffat Bay Lodge{% endblock %}
 
-{% block stylesheet %} {% static 'home.css' %} {% endblock %}
+{% block stylesheet %}
+<link rel="stylesheet" href="{% static 'home.css' %}">
+{% endblock %}
 
-{% block extra_head %}{% endblock %}
+{% block extra_head %}
+<!-- Add any extra head content here -->
+{% endblock %}
 
 {% block content %}
-<div class="content-container">
-  {% if request.user.is_authenticated %}
-  <h1>Welcome to Moffat Bay Lodge <b>{{ request.user.first_name }} {{request.user.last_name}}</b></h1>
-  {% else %}
-  <h1>Welcome to Moffat Bay Lodge</h1>
-  {% endif %}
-  <p>Experience the beauty and serenity of Moffat Bay.</p>
-  <h3>You are currently in home.html, but the background and navbar is coming from base.html</h3>
-</div>
+<main class="pt-5 mt-0">
+  <div class="row" style="min-height: 100vh; margin-top: 15vh;">
+    <div class="col-10 offset-1">
+      <div class="content-container">
+        <div class="bg-white card mt-4" style="border-radius: 40px;">
+          <div class="card-body text-center p-5">
+            <h2 style="font-family: 'Pacifico', cursive">Welcome to Moffat Bay Lodge</h2>
+            {% if request.user.is_authenticated %}
+            <h4 class="mt-3">Hello, <b>{{ request.user.first_name }} {{ request.user.last_name }}</b>!</h4>
+            {% else %}
+            <h4 class="mt-3">Experience the beauty and serenity of Moffat Bay.</h4>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-3">
+        <a href="#adventure" class="nav-link link-light">
+          <h5>Learn More!</h5>
+        </a>
+        <a href="#adventure" class="nav-link link-light">
+          <i class="bi bi-arrow-down-circle-fill h3"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div id="adventure" style="min-height: 50vh;" class="bg-success text-center pt-4">
+    <h1 class="text-white" style="font-family: 'Pacifico', cursive">Prepare For Adventure!</h1>
+    <div class="row d-flex justify-content-center p-5 mb-5">
+      <div class="col-10 offset-1 col-lg-4 offset-lg-0">
+        <div class="card m-auto w-75 h-100">
+          <img src="{% static 'Img/dining.jpg' %}" class="card-img-top h-75" alt="Dining">
+          <div class="card-body">
+            <h2 style="font-family: 'Pacifico', cursive">Dine!</h2>
+            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde dicta tenetur aperiam repellendus cum quas.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-10 offset-1 col-lg-4 offset-lg-0">
+        <div class="card m-auto w-75 h-100">
+          <img src="{% static 'Img/lounge.jpg' %}" class="card-img-top h-75" alt="Lounge">
+          <div class="card-body">
+            <h2 style="font-family: 'Pacifico', cursive">Lounge!</h2>
+            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde dicta tenetur aperiam repellendus cum quas.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-10 offset-1 col-lg-4 offset-lg-0">
+        <div class="card m-auto w-75 h-100">
+          <img src="{% static 'Img/explore.jpg' %}" class="card-img-top h-75" alt="Explore">
+          <div class="card-body">
+            <h2 style="font-family: 'Pacifico', cursive">Explore!</h2>
+            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde dicta tenetur aperiam repellendus cum quas.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <a href="{% url 'attractions' %}" class="btn btn-outline-light mb-5" style="font-size: 2rem; font-family: 'Pacifico', cursive">Find Your Adventure!</a>
+    <a href="{% url 'about' %}" class="btn btn-outline-light mb-5" style="font-size: 2rem; font-family: 'Pacifico', cursive">Explore The Bay!</a>
+    <a href="{% url 'book' %}" class="btn btn-outline-light mb-5" style="font-size: 2rem; font-family: 'Pacifico', cursive">Plan Your Trip!</a>
+  </div>
+</main>
 {% endblock %}
+
 
 {% comment %} 
 For all other html files that are made please follow these steps:
