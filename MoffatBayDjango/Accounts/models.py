@@ -39,13 +39,13 @@ class CustomUser(AbstractUser):
         self.username = self.email
         super(CustomUser, self).save(*args, **kwargs)
 
-# Create session model
-class Session(models.Model):
-    sessionID = models.AutoField(primary_key=True)
-    userID = models.ForeignKey(CustomUser, on_delete=models.CASCADE, db_column='UserID')
-    sessionToken = models.UUIDField(default=uuid.uuid4, db_column='SessionToken')
-    created_date = models.DateTimeField(default=timezone.now, db_column='CreatedAt')
-    expires_date = models.DateTimeField(db_column='ExpiresAt')
+# Create session model which I do not believe we will be using as of 09/13/2024
+# class Session(models.Model):
+#     sessionID = models.AutoField(primary_key=True)
+#     userID = models.ForeignKey(CustomUser, on_delete=models.CASCADE, db_column='UserID')
+#     sessionToken = models.UUIDField(default=uuid.uuid4, db_column='SessionToken')
+#     created_date = models.DateTimeField(default=timezone.now, db_column='CreatedAt')
+#     expires_date = models.DateTimeField(db_column='ExpiresAt')
 
-    class Meta:
-        db_table = 'session'
+#     class Meta:
+#         db_table = 'session'

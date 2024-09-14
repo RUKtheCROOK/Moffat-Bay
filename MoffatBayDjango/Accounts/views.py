@@ -3,7 +3,7 @@ from django.views.generic import CreateView, FormView, View, TemplateView
 from django.contrib.auth import login as auth_login
 from .forms import CustomUserCreationForm, CustomUserLoginForm
 from .models import CustomUser
-from django.shortcuts import redirect, render
+from django.shortcuts import render
 from django.contrib.auth import logout
 
 class SignUpView(CreateView):
