@@ -13,11 +13,14 @@ class ReservationListView(LoginRequiredMixin, ListView):
     template_name = 'reservations/reservation_list.html'
     context_object_name = 'reservations'
     ordering = ['-created_at',]
-    paginate_by = 5
 
     def get_uer_reservations(self):
         return Reservation.objects.filter(user_id=self.request.user)
     
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['reservations'] = self.get_uer_reservations()
+        return context
 
 class ReservationDetailView(LoginRequiredMixin, DetailView):
     model = Reservation
