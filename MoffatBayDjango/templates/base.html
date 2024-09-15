@@ -68,9 +68,6 @@
             <li class="nav-item p-3">
               <a class="nav-link {% if page_type == 'attractions' %}active{% endif %}" href="{% url 'attractions' %}">Things To Do</a>
             </li>
-            <li class="nav-item p-3">
-              <a class="nav-link {% if page_type == 'contact' %}active{% endif %}" href="{% url 'contact' %}">Contact Us</a>
-            </li>
 
             {% if request.user.is_authenticated %}
               <li class="nav-item dropdown p-3">
@@ -111,14 +108,13 @@
               <li class="nav-item mb-2"><a href="{% url 'home' %}" class="nav-link p-0 text-white">Home</a></li>
               <li class="nav-item mb-2"><a href="{% url 'about' %}" class="nav-link p-0 text-white">About The Bay</a></li>
               <li class="nav-item mb-2"><a href="#{% url 'attractions' %}" class="nav-link p-0 text-white">Things To Do</a></li>
-              <li class="nav-item mb-2"><a href="{% url 'contact' %}" class="nav-link p-0 text-white">Contact Us</a></li>
               <li class="nav-item mb-2"><a href="{% url 'login' %}" class="nav-link p-0 text-white">Register / Login</a></li>
             </ul>
           </div>
 
           <div class="col-10 offset-1 col-lg-5 mt-4 mt-lg-0">
             <h5>Find Us!</h5>
-            <p><i class="bi bi-geo-alt-fill"></i> Moffat Bay Lodge <br /> 1234 Orca Point Road <br /> Eastsound, WA 98245</p>
+            <p><i class="bi bi-geo-alt-fill"></i> Moffat Bay Lodge <br /> 1234 Orca Point Road <br /> Joviedsa Island, WA 98250</p>
             <p>
               <i class="bi bi-telephone-fill"></i> Phone:
               <a href="tel:3605557890" class="link-info">(360) 555-7890</a>
