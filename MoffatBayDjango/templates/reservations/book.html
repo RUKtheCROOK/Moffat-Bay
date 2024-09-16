@@ -9,7 +9,8 @@
 {% block extra_head %}{% endblock %}
 
 {% block content %}
-<div class="container" style="background-color: white;">
+<div class="row">
+  <div class="col-12 content-container">
   {% if object.pk %}
     <h1>Editiing reservation: {{ reservation.reservationID }}</h1>
   {% else %}
@@ -24,6 +25,7 @@
             <button type="submit" class="btn btn-primary">Book</button>
         {% endif %}
     </form>
+  </div>
 </div>
 {% endblock %}
 
