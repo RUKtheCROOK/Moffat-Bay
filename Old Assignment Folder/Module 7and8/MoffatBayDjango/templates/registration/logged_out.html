@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+<!-- load static -->
+
+{% load static %}
+<!-- the css -->
+
+{% block link %} {% static 'home.css'%} {% endblock link %}
+<!-- the title -->
+
+{% block title %}Logged Out{% endblock title %}
+
+<!-- the content -->
+
+{% block content %}
+<div class="content-container">
+  <h1>Logged Out</h1>
+  <p>You have been successfully logged out.</p>
+  <a href="{% url 'login' %}">Login</a>
+</div>
+{% endblock %}
+
+

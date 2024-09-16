@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block title %}Contact Us{% endblock %}
+
+{% block stylesheet %} {% static 'home.css' %} {% endblock %}
+
+{% block extra_head %}{% endblock %}
+
+{% block content %}
+<div class="row">
+  <div class="col-12">
+    <div class="content-container mt-0">
+      <h1>Leave Us A Message!</h1>
+      <form class="mt-5">
+        <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input type="text" class="form-control" id="name" required />
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" class="form-control" id="email" required />
+        </div>
+        <div class="mb-3">
+          <label for="message" class="form-label">Message</label>
+          <textarea
+            class="form-control"
+            id="message"
+            rows="3"
+            required
+          ></textarea>
+        </div>
+        <button type="submit" class="btn btn-success">Submit</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="col-12">
+    <h1 class="text-center text-white mt-5">Contact Us</h1>
+    <div class="content-container mt-3">
+      <h3>Our Contact info:</h3>
+      <p><i class="bi bi-geo-alt-fill text-success"></i>
+        Moffat Bay Lodge <br />
+        1234 Orca Point Road <br />
+        Eastsound, WA 98245 <br />
+        United States
+      </p>
+      <p><i class="bi bi-telephone-fill text-success"></i> Phone:
+        <a href="tel:3605557890">(360) 555-7890</a>
+      </p>
+      <p>
+        <i class="bi bi-envelope-fill text-success"></i> Email:
+        <a href="mailto:info@moffatbaylodge.com">info@moffatbaylodge.com</a>
+      </p>
+      <p>
+        <i class="bi bi-clock-fill text-success"></i> Office Hours: Mon - Fri, 6:00 AM
+        - 10:00 PM
+      </p>
+    </div>
+  </div>
+</div>
+{% endblock %}
+

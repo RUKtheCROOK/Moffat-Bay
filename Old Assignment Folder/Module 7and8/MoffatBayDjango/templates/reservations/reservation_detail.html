@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}Reservation Details{% endblock %}
+
+{% block content %}
+<div class="container" style="background-color: white;">
+    <h1><u>Reservation Details for {{reservation.reservation_status}} Reservation:</u></h1>
+    <p><strong>Reservation ID:</strong> {{ reservation.reservationID }}</p>
+    <p><strong>Room Type:</strong> {{ reservation.room_type_id.room_type_name }}</p>
+    <p><strong>Check-in Date:</strong> {{ reservation.check_in_date }}</p>
+    <p><strong>Check-out Date:</strong> {{ reservation.check_out_date }}</p>
+    <p><strong>Number of Guests:</strong> {{ reservation.number_of_guests }}</p>
+    <p><strong>Total Price:</strong> ${{ reservation.total_price }}</p>
+    <p><strong>Status:</strong> {{ reservation.reservation_status }}</p>
+    
+    <!-- Confirm Reservation Form -->
+    <form action="{% url 'reservation-update' reservation.reservationID %}" method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-success">Edit Reservation</button>
+    </form>
+</div>
+{% endblock %}

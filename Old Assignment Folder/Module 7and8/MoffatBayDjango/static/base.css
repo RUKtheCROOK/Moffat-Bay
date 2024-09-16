@@ -1,0 +1,64 @@
+body {
+    background: url('Img/MoffatBayImage.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: black;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Pacifico', cursive;
+  }
+
+  /* White container styling */
+  .content-container {
+    background-color: white;
+    padding: 40px !important;
+    border-radius: 20px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    color: #333;
+    margin-top: 80px;
+  }
+
+  .loginContainer h2 {
+    margin-bottom: 20px;
+  }
+  .loginContainer .form-group {
+    margin-bottom: 15px;
+  }
+  .loginContainer .btn {
+    width: 100%;
+  }
+
+  /*These 3 pieces are being used to create the divider between buttons.*/
+.divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px 0;
+}
+
+.line {
+  width: 100%;
+  margin: 0 5px;
+}
+
+.divider span {
+  color: #666;
+  font-size: 18px;
+  margin: 0 8px;
+}
+
+.attractionContainer {
+  border: none;
+  margin-bottom: 30px;
+}
+.attractionContainer img {
+  border-radius: 10px;
+}
+.attractionContainer h3 {
+  margin-top: 15px;
+}
+.attractionContainer p {
+  margin-top: 10px;
+}

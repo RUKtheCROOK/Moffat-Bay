@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{# 
+Moffat Bay Lodge Project
+Bravo Team
+Andrew Bach
+Somsak Bounchareune
+Torren Davis
+John Garcia
+Taylor Mommer
+#}
+{% block title %}Things To Do{% endblock %}
+
+{% block stylesheet %} {% static 'home.css' %} {% endblock %}
+
+{% block extra_head %}{% endblock %}
+
+{% block content %}
+<div class="row">
+  <div class="col-12">
+    <div class="content-container mt-0">
+      <h1 class="text-center mt-4">Things To Do</h1>
+      <p class="text-center mb-5">
+        Explore Joviedsa Island and Beyond
+      </p>
+
+      <div class="row">
+        <div class="col-6">
+          <div class="attractionContainer">
+            <img src="{% static 'Img/hiking.jpg' %}" alt="Hiking Trails" class="img-fluid" />
+            <h3>Hiking</h3>
+            <p>
+              Discover the natural beauty of Joviedsa Island on foot. Our network of hiking trails ranges from easy nature walks to challenging summit hikes, offering stunning views of the Salish Sea and neighboring islands. Don't miss the panoramic vistas from Mount Joviedsa, the island's highest point.
+            </p>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="attractionContainer">
+            <img src="{% static 'Img/kyaking.jpg' %}" alt="Kayaking" class="img-fluid" />
+            <h3>Kayaking</h3>
+            <p>
+              Explore the serene waters of Moffat Bay and beyond. Our guided kayaking tours offer a unique perspective of Joviedsa Island's shoreline, hidden coves, and diverse marine life. Suitable for beginners and experienced paddlers alike.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-6">
+          <div class="attractionContainer">
+            <img
+              src="{% static 'Img/whale.jpg' %}"
+              alt="Whale Watching"
+              class="img-fluid"
+              style="height: 300px"
+            />
+            <h3>Whale Watching</h3>
+            <p>
+              Experience the majesty of orcas in their natural habitat. Joviedsa Island is perfectly situated for whale watching excursions. From May to October, witness these magnificent creatures along with humpback whales, minke whales, and gray whales.
+            </p>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="attractionContainer">
+            <img src="{% static 'Img/scuba.jpg' %}" alt="Scuba Diving" class="img-fluid" />
+            <h3>Scuba Diving</h3>
+            <p>
+              Explore the underwater wonders of the San Juan Islands. With its nutrient-rich waters, the area around Joviedsa Island is home to a diverse array of marine life, including colorful anemones, octopuses, and playful seals. Both beginners and experienced divers will find sites to suit their skill levels.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+

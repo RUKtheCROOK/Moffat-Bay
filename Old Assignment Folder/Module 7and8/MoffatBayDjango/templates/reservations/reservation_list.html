@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block content %}
+    <div class="container">
+        <h1>Reservations</h1>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Room Type</th>
+                    <th>Check In</th>
+                    <th>Check Out</th>
+                    <th>Number of Guests</th>
+                    <th>Total Price</th>
+                    <th>Reservation Status</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for reservation in reservations %}
+                    <tr>
+                        <td>{{ reservation.room_type_id.room_type_name }}</td>
+                        <td>{{ reservation.check_in_date }}</td>
+                        <td>{{ reservation.check_out_date }}</td>
+                        <td>{{ reservation.number_of_guests }}</td>
+                        <td>{{ reservation.total_price }}</td>
+                        <td> {{ reservation.reservation_status }}</td>
+                        <td>
+                            <a href="{% url 'reservation-detail' reservation.reservationID %}" class="btn btn-info">View</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
