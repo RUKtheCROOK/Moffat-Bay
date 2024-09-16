@@ -3,26 +3,27 @@
 {% block title %}Reservation Summary{% endblock %}
 
 {% block content %}
-<div class="container" style="background-color: white;">
-    <h1>Reservation Summary</h1>
-    <p><strong>Reservation ID:</strong> {{ reservation.reservationID }}</p>
-    <p><strong>Room Type:</strong> {{ reservation.room_type_id.room_type_name }}</p>
-    <p><strong>Check-in Date:</strong> {{ reservation.check_in_date }}</p>
-    <p><strong>Check-out Date:</strong> {{ reservation.check_out_date }}</p>
-    <p><strong>Number of Guests:</strong> {{ reservation.number_of_guests }}</p>
-    <p><strong>Total Price:</strong> ${{ reservation.total_price }}</p>
-    <p><strong>Status:</strong> {{ reservation.reservation_status }}</p>
-    
-    <!-- Confirm Reservation Form -->
-    <form action="{% url 'reservation-confirm' reservation.reservationID %}" method="post">
-        {% csrf_token %}
-        <button type="submit" class="btn btn-success">Confirm Reservation</button>
-    </form>
-    
-    <!-- Cancel Reservation Form -->
-    <form action="{% url 'reservation-cancel' reservation.reservationID %}" method="post">
-        {% csrf_token %}
-        <button type="submit" class="btn btn-danger">Cancel Reservation</button>
-    </form>
+<div class="row">
+    <div class="col-12 content-container">
+        <h1>Reservation Summary</h1>
+        <p><strong>Reservation ID:</strong> {{ reservation.reservationID }}</p>
+        <p><strong>Room Type:</strong> {{ reservation.room_type_id.room_type_name }}</p>
+        <p><strong>Check-in Date:</strong> {{ reservation.check_in_date }}</p>
+        <p><strong>Check-out Date:</strong> {{ reservation.check_out_date }}</p>
+        <p><strong>Number of Guests:</strong> {{ reservation.number_of_guests }}</p>
+        <p><strong>Total Price:</strong> ${{ reservation.total_price }}</p>
+        <p><strong>Status:</strong> {{ reservation.reservation_status }}</p>
+        
+        <!-- Confirm Reservation Form -->
+        <form class="mb-1" action="{% url 'reservation-confirm' reservation.reservationID %}" method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-success">Confirm Reservation</button>
+        </form>
+        <!-- Cancel Reservation Form -->
+        <form class="mt-1" action="{% url 'reservation-cancel' reservation.reservationID %}" method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Cancel Reservation</button>
+        </form>
+    </div>
 </div>
 {% endblock %}
