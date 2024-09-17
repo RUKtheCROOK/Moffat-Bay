@@ -102,9 +102,6 @@ class ReservationUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView)
             return True
         return False
     
-class ReservationDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
-    print("Not implemented")
-    
 class ReservationSummaryView(LoginRequiredMixin, DetailView):
     model = Reservation
     template_name = 'reservations/reservation_summary.html'
@@ -133,3 +130,42 @@ class ReservationEditView(LoginRequiredMixin, View):
     def post(self, request, *args, **kwargs):
         reservation = Reservation.objects.get(pk=self.kwargs['pk'])
         return redirect('reservation-update', pk=reservation.pk)
+    
+class ReservationSearchingView(LoginRequiredMixin, TemplateView):
+    template_name = 'reservations/reservation_search.html'
+
+    def post(self, request, *args, **kwargs):
+        # Get the form inputs from post request
+        email = request.POST.get('email', '').strip()
+        reservationSearched = request.POST.get('reservationID', '').strip()
+        allReservations = Reservation.objects.all().filter(user_id=self.request.user)
+
+
+        # Check if both fields are empty
+        if not email and not reservationSearched:
+            return render(request, self.template_name, {
+                'error': 'Please enter a valid email or reservation ID.'
+            })
+
+        # Check if both fields are there
+        if email and reservationSearched:
+            reservations = allReservations.filter(user_id__email=email) | allReservations.filter(reservationID=reservationSearched)
+        else:
+            # Check if email is provided
+            if email:
+                reservations = allReservations.filter(user_id__email=email)
+            else:
+                reservations = allReservations.filter(reservationID=reservationSearched)
+
+
+        # Handle no reservations found
+        if not reservations:
+            reservations = None
+            # return render(request, self.template_name, {
+            #     'error': 'No reservations found.'
+            # })
+        
+        return render(request, self.template_name, {
+            'reservations': reservations
+        })
+    

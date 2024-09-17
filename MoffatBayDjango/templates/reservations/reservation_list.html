@@ -7,6 +7,7 @@
         <table class="table table-striped">
             <thead>
                 <tr>
+                    <th>Reservation ID</th>
                     <th>Room Type</th>
                     <th>Check In</th>
                     <th>Check Out</th>
@@ -19,6 +20,7 @@
             <tbody>
                 {% for reservation in reservations %}
                     <tr>
+                        <td>{{ reservation.reservationID }}</td>
                         <td>{{ reservation.room_type_id.room_type_name }}</td>
                         <td>{{ reservation.check_in_date }}</td>
                         <td>{{ reservation.check_out_date }}</td>

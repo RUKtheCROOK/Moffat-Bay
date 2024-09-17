@@ -13,6 +13,6 @@ class Reservation(models.Model):
     total_price = models.DecimalField(max_digits=10, decimal_places=2)
     reservation_status = models.CharField(max_length=20, default='Confirmed')
     created_at = models.DateTimeField(auto_now_add=True)
-    
+
     def __str__(self):
-        return f"{self.reservation_id} - {self.user_id} - {self.room_type_id} - {self.number_of_guests} - {self.check_in_date} - {self.check_out_date} - {self.total_price} - {self.reservation_status} - {self.created_at}"
+        return f"{self.reservationID} - {self.user_id} - {self.room_type_id} - {self.number_of_guests} - {self.check_in_date} - {self.check_out_date} - {self.total_price} - {self.reservation_status} - {self.created_at}"
