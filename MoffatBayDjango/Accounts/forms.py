@@ -25,11 +25,16 @@ class CustomUserCreationForm(forms.ModelForm):
 
     def clean_password(self):
         password = self.cleaned_data.get('password')
+        min_length = 8;
         # Add your custom password validation logic here
+        if (password) < min_length:
+            raise forms.ValidationError('Password must be at least {min_length} characters long')
         if not any(char.isdigit() for char in password):
             raise forms.ValidationError('Password must contain at least one digit.')
-        if not any(char.isalpha() for char in password):
-            raise forms.ValidationError('Password must contain at least one letter.')
+        if not any(char.isupper() for char in password):
+            raise forms.ValidationError('Password must contain at least one uppercase character.')
+        if not any(char.islower() for char in password):
+            raise forms.ValidationError('Password must contain at least one lowercase character.')
         return password
 
     def clean_email(self):
