@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Book Now{% endblock %}
+
+{% block stylesheet %} {% static 'home.css' %} {% endblock %}
+
+{% block extra_head %}{% endblock %}
+
+{% block content %}
+<div class="row">
+  <div class="col-12 content-container">
+  {% if object.pk %}
+    <h1>Editiing reservation: {{ reservation.reservationID }}</h1>
+  {% else %}
+    <h1>Book Now</h1>
+  {% endif %}
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        {% if object.pk %}
+            <button type="submit" class="btn btn-primary">Update Reservation</button>
+        {% else %}
+            <button type="submit" class="btn btn-primary">Book</button>
+        {% endif %}
+    </form>
+    {% if object.pk %}
+        <form action="{% url 'reservation-cancel' reservation.reservationID %}" method="post">
+            {% csrf_token %}
+            <br>
+            <button type="submit" class="btn btn-danger">Cancel Reservation</button>
+        </form>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}
+
