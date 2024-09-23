@@ -12,10 +12,12 @@
 <!-- the content -->
 
 {% block content %}
-<div class="content-container">
-  <h1>Logged Out</h1>
-  <p>You have been successfully logged out.</p>
-  <a href="{% url 'login' %}">Login</a>
+<div class="row">
+  <div class="col-10 offset-1 col-lg-4 offset-lg-4 content-container">
+    <h1>Logged Out</h1>
+    <p>You have been successfully logged out.</p>
+    <a href="{% url 'login' %}">Login</a>
+  </div>
 </div>
 {% endblock %}
 
