@@ -6,8 +6,9 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from Rooms.models import Room
 from .forms import ReservationForm
 
-# Create your views here.
+# Group Names: Taylor Mommer, John Garcia, Andrew Bach, Somsak Bounchareune, Torren Davis
 
+# This is the view for the reservation list. It is a ListView that uses the Reservation model.
 class ReservationListView(LoginRequiredMixin, ListView):
     model = Reservation
     template_name = 'reservations/reservation_list.html'
@@ -22,11 +23,13 @@ class ReservationListView(LoginRequiredMixin, ListView):
         context['reservations'] = self.get_uer_reservations()
         return context
 
+# This is the view for the reservation detail. It is a DetailView that uses the Reservation model.
 class ReservationDetailView(LoginRequiredMixin, DetailView):
     model = Reservation
     template_name = 'reservations/reservation_detail.html'
     context_object_name = 'reservation'
 
+# This is the view for the reservation create. It is a CreateView that uses the Reservation model and ReservationForm.
 class ReservationCreateView(LoginRequiredMixin, CreateView):
     model = Reservation
     form_class = ReservationForm
@@ -61,7 +64,8 @@ class ReservationCreateView(LoginRequiredMixin, CreateView):
     def get_success_url(self):
         return reverse('reservation-summary', kwargs={'pk': self.object.pk})
 
-        
+
+# This is the view for the reservation update. It is an UpdateView that uses the Reservation model and ReservationForm.  
 class ReservationUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Reservation
     form_class = ReservationForm
@@ -102,6 +106,7 @@ class ReservationUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView)
             return True
         return False
     
+# This is the view for the reservation summary. It is a DetailView that uses the Reservation model.
 class ReservationSummaryView(LoginRequiredMixin, DetailView):
     model = Reservation
     template_name = 'reservations/reservation_summary.html'
@@ -111,6 +116,7 @@ class ReservationSummaryView(LoginRequiredMixin, DetailView):
         return Reservation.objects.get(pk=self.kwargs['pk'])
     
     
+# This is the view for the reservation confirm. It is a View that confirms a reservation.
 class ReservationConfirmView(LoginRequiredMixin, View):
     def post(self, request, *args, **kwargs):
         reservation = Reservation.objects.get(pk=self.kwargs['pk'])
@@ -118,7 +124,7 @@ class ReservationConfirmView(LoginRequiredMixin, View):
         reservation.save()
         return redirect('reservation-detail', pk=reservation.pk)
     
-
+# This is the view for the reservation cancel. It is a View that cancels a reservation.
 class ReservationCancelView(LoginRequiredMixin, View):
     def post(self, request, *args, **kwargs):
         reservation = Reservation.objects.get(pk=self.kwargs['pk'])
@@ -126,11 +132,13 @@ class ReservationCancelView(LoginRequiredMixin, View):
         reservation.save()
         return redirect('home')
     
+# This is a view for the reservation edit. It is a View that redirects to the reservation update view.
 class ReservationEditView(LoginRequiredMixin, View):
     def post(self, request, *args, **kwargs):
         reservation = Reservation.objects.get(pk=self.kwargs['pk'])
         return redirect('reservation-update', pk=reservation.pk)
     
+# This is a view for searching reservations. It is a TemplateView that uses the reservation_search.html template.
 class ReservationSearchingView(LoginRequiredMixin, TemplateView):
     template_name = 'reservations/reservation_search.html'
 

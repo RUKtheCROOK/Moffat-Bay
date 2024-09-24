@@ -3,6 +3,9 @@ from django.db import models
 from django.utils import timezone
 import uuid
 
+# Group Names: Taylor Mommer, John Garcia, Andrew Bach, Somsak Bounchareune, Torren Davis
+
+# This is the custom user model. It holds the user's information and is used for authentication.
 class CustomUser(AbstractUser):
     userID = models.AutoField(primary_key=True)
     first_name = models.CharField(max_length=50, db_column='FirstName')

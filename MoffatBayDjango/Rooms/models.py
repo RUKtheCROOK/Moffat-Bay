@@ -2,6 +2,9 @@ from django.db import models
 
 # Create your models here.
 
+# Group Names: Taylor Mommer, John Garcia, Andrew Bach, Somsak Bounchareune, Torren Davis
+
+# This is the model for the Room table. It contains all information about the rooms that are available for booking.
 class Room(models.Model):
     roomTypeID = models.AutoField(primary_key=True)
     room_type_name = models.CharField(max_length=50)

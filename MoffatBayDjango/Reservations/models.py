@@ -2,6 +2,9 @@ from django.db import models
 from Accounts.models import CustomUser
 from Rooms.models import Room
 
+# Group Names: Taylor Mommer, John Garcia, Andrew Bach, Somsak Bounchareune, Torren Davis
+
+# This is the Reservation model. It is used to store information about a reservation which can be used in other parts of the application.
 
 class Reservation(models.Model):
     reservationID = models.AutoField(primary_key=True)

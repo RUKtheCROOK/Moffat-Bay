@@ -19,6 +19,9 @@ from django.urls import path, include
 
 from django.contrib.auth import urls
 
+# Group Names: Taylor Mommer, John Garcia, Andrew Bach, Somsak Bounchareune, Torren Davis
+
+# This file contains the URL patterns for the MoffatBay project as a whole.
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('Pages.urls')),

@@ -3,6 +3,9 @@ from .models import CustomUser
 from django.contrib.auth.hashers import make_password, check_password
 import uuid
 
+# Group Names: Taylor Mommer, John Garcia, Andrew Bach, Somsak Bounchareune, Torren Davis
+
+# This is the CustomUserCreationForm. It is a Django form for creating a new user.
 class CustomUserCreationForm(forms.ModelForm):
     password = forms.CharField(
         widget=forms.PasswordInput(attrs={
@@ -25,7 +28,7 @@ class CustomUserCreationForm(forms.ModelForm):
 
     def clean_password(self):
         password = self.cleaned_data.get('password')
-        min_length = 8;
+        min_length = 8
         # Add your custom password validation logic here
         if (password) < min_length:
             raise forms.ValidationError('Password must be at least {min_length} characters long')
@@ -52,6 +55,7 @@ class CustomUserCreationForm(forms.ModelForm):
         return user
     
 
+# This is the CustomUserLoginForm. It is a Django form for logging in a user.
 class CustomUserLoginForm(forms.Form):
     email = forms.EmailField(
         widget=forms.EmailInput(attrs={

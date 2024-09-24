@@ -6,6 +6,9 @@ from .models import CustomUser
 from django.shortcuts import render
 from django.contrib.auth import logout
 
+# Group Names: Taylor Mommer, John Garcia, Andrew Bach, Somsak Bounchareune, Torren Davis
+
+# This is the sign up view. It is a CreateView that uses the CustomUser model and CustomUserCreationForm.
 class SignUpView(CreateView):
     model = CustomUser
     form_class = CustomUserCreationForm
@@ -18,6 +21,7 @@ class SignUpView(CreateView):
         context['page_type'] = 'signup/login'
         return context
     
+# This is the login view. It is a FormView that uses the CustomUserLoginForm.
 class LoginView(FormView):
     form_class = CustomUserLoginForm
     template_name = 'registration/login.html'
@@ -33,7 +37,8 @@ class LoginView(FormView):
         context['page_title'] = 'Login'
         context['page_type'] = 'signup/login'
         return context
-        
+
+# This is the logout view. It is a View that logs the user out.    
 class LogoutView(View):
     def get(self, request, *args, **kwargs):
         logout(request)

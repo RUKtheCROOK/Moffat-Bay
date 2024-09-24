@@ -1,8 +1,9 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView
 
-# Create your views here.
+# Group Names: Taylor Mommer, John Garcia, Andrew Bach, Somsak Bounchareune, Torren Davis
 
+# This is the view for the home page. It is a TemplateView that uses the home.html template.
 class HomePageView(TemplateView):
     template_name = 'home.html'
 
@@ -11,6 +12,7 @@ class HomePageView(TemplateView):
         context['page_type'] = 'home'
         return context
 
+# This is the view for the about page. It is a TemplateView that uses the about.html template.
 class AboutPageView(TemplateView):
     template_name = 'about.html'
 
@@ -19,6 +21,7 @@ class AboutPageView(TemplateView):
         context['page_type'] = 'about'
         return context
 
+# This is the view for the attractions page. It is a TemplateView that uses the attractions.html template.
 class AttractionsPageView(TemplateView):
     template_name = 'attractions.html'
 
@@ -27,6 +30,7 @@ class AttractionsPageView(TemplateView):
         context['page_type'] = 'attractions'
         return context
 
+# We will not be using any of the following views in our project as of 9/24/2024:
 # class BookPageView(TemplateView):
 #     template_name = 'book.html'
 

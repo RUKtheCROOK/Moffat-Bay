@@ -1,6 +1,9 @@
 from django import forms
 from .models import Reservation
 
+# Group Names: Taylor Mommer, John Garcia, Andrew Bach, Somsak Bounchareune, Torren Davis
+
+# This is the form for the Reservation model. It is used to create a new reservation.
 class ReservationForm(forms.ModelForm):
     class Meta:
         model = Reservation
@@ -24,6 +27,7 @@ class ReservationForm(forms.ModelForm):
             }),
         }
 
+    # This function sets the error messages for the form.
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
