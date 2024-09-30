@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% comment %} Group Names: Taylor Mommer, John Garcia, Andrew Bach, Somsak Bounchareune, Torren Davis {% endcomment %}
+{% load static %}
+
+{% block title %}Reservation Search{% endblock %}
+
+{% block stylesheet %} {% static 'home.css' %} {% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-10 offset-1 content-container">
+            <h1>Reservation Search</h1>
+            <form method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="reservationID">Reservation ID:</label>
+                    <input type="text" class="form-control" id="reservationID" name="reservationID" placeholder="Enter Reservation ID">
+                    <br>
+                    <h3>OR</h3>
+                    <label for="email">Email:</label>
+                    <input type="text" class="form-control" id="email" name="email" placeholder="Enter Email">
+                </div>
+                <br>
+                <button type="submit" class="btn btn-primary">Search</button>
+            </form>
+            {% if error %}
+                <div class="row">
+                    <div class="col-12">
+                        {{ error }}
+                    </div>
+                </div>
+            {% else %}
+                {% if reservations == None %}
+                    <div class="row">
+                        <div class="col-12">
+                            <h2 class="mt-5">No Reservations Found! Try Again...</h2>
+                        </div>
+                    </div>
+                {% else %}
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Reservation ID</th>
+                                <th>Room Type</th>
+                                <th>Check In</th>
+                                <th>Check Out</th>
+                                <th>Number of Guests</th>
+                                <th>Total Price</th>
+                                <th>Reservation Status</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% for reservation in reservations %}
+                            <tr>
+                                <td>{{ reservation.reservationID }}</td>
+                                <td>{{ reservation.room_type_id.room_type_name }}</td>
+                                <td>{{ reservation.check_in_date }}</td>
+                                <td>{{ reservation.check_out_date }}</td>
+                                <td>{{ reservation.number_of_guests }}</td>
+                                <td>{{ reservation.total_price }}</td>
+                                <td>{{ reservation.reservation_status }}</td>
+                                <td>
+                                    <a href="{% url 'reservation-detail' reservation.reservationID %}" class="btn btn-info">View</a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                {% endif %}
+        </div>
+            {% endif %}
+    </div>
+{% endblock %}

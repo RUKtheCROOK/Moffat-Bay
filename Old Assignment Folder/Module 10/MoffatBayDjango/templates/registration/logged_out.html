@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+<!-- load static -->
+
+{% comment %} Group Names: Taylor Mommer, John Garcia, Andrew Bach, Somsak Bounchareune, Torren Davis {% endcomment %}
+{% load static %}
+<!-- the css -->
+
+{% block link %} {% static 'home.css'%} {% endblock link %}
+<!-- the title -->
+
+{% block title %}Logged Out{% endblock title %}
+
+<!-- the content -->
+
+{% block content %}
+<div class="row">
+  <div class="col-10 offset-1 col-lg-4 offset-lg-4 content-container">
+    <h1>Logged Out</h1>
+    <p>You have been successfully logged out.</p>
+    <a href="{% url 'login' %}">Login</a>
+  </div>
+</div>
+{% endblock %}
+
+
