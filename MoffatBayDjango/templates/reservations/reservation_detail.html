@@ -19,6 +19,13 @@
             {% csrf_token %}
             <button type="submit" class="btn btn-success">Edit Reservation</button>
         </form>
+        <!-- Cancel Reservation Form -->
+         {% if reservation.reservation_status == 'Confirmed' %}
+        <form class="mt-1" action="{% url 'reservation-cancel' reservation.reservationID %}" method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Cancel Reservation</button>
+        </form>
+        {% endif %}
     </div>
 </div>
 {% endblock %}

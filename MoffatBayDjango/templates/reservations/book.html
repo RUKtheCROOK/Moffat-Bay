@@ -25,7 +25,7 @@
             <button type="submit" class="btn btn-primary">Book</button>
         {% endif %}
     </form>
-    {% if object.pk %}
+    {% if reservation.reservation_status == 'Confirmed' %}
         <form action="{% url 'reservation-cancel' reservation.reservationID %}" method="post">
             {% csrf_token %}
             <br>
