@@ -184,8 +184,8 @@ ALTER TABLE `reservation`
 -- ====================================================================================================================
 INSERT INTO RoomType (RoomTypeName, BasePrice, MaxGuests)
 VALUES 
-('Double Full Beds', 115.00, 2),
-('Queen', 130.00, 2),
+('Double Full Beds', 120.75, 2),
+('Queen', 136.50, 2),
 ('Double Queen Beds', 145.00, 4),
-('King', 155.00, 2);
+('King', 162.75, 2);
 COMMIT;
